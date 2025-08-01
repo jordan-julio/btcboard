@@ -10,6 +10,7 @@ import { InnovationSection } from '@/components/sections/InnovationSection';
 import { CTASection } from '@/components/sections/CTASection';
 import { Footer } from '@/components/sections/Footer';
 import { Loader } from '@/components/utility/Loader';
+import CarouselProductSection from '@/components/sections/CarouselProductSection';
 
 export default function PVCBoardWebsite() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,6 +50,7 @@ export default function PVCBoardWebsite() {
       />
       <StatisticsSection />
       <ProductsSection />
+      <CarouselProductSection />
       <CaseStudiesSection />
       <InnovationSection />
       <CTASection />
