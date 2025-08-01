@@ -6,10 +6,10 @@ import { AnimatedCounter } from '../utility/AnimatedCounter';
 
 export const StatisticsSection = () => {
   const stats = [
-    { number: "50000", suffix: "+", label: "Projects Completed", icon: <Building2 /> },
+    { number: "10000", suffix: "+", label: "Projects Completed", icon: <Building2 /> },
     { number: "98", suffix: "%", label: "Client Satisfaction", icon: <Star /> },
-    { number: "15", suffix: "M", label: "Square Meters Installed", icon: <Layers /> },
-    { number: "25", suffix: "+", label: "Years of Excellence", icon: <Award /> }
+    { number: "100000", suffix: "+", label: "Satisfied Customers", icon: <Layers /> },
+    { number: "5", suffix: "+", label: "Years of Excellence", icon: <Award /> }
   ];
 
   return (
