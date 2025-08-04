@@ -104,10 +104,10 @@ const CarouselProductSection = () => {
 
     .gallery-inner {
       --w: 220px;
-      --h: 160px;
+      --h: 200px;
       --translateZ: calc((var(--w) + var(--h)) + 120px);
-      --rotateX: -10deg;
-      --perspective: 1500px;
+      --rotateX: -5deg;
+      --perspective: 1600px;
       position: absolute;
       width: var(--w);
       height: var(--h);
@@ -134,7 +134,7 @@ const CarouselProductSection = () => {
 
     .gallery-card {
       position: absolute;
-      border: 3px solid rgba(var(--color-card), 0.8);
+      border: none;
       border-radius: 20px;
       overflow: hidden;
       inset: 0;
@@ -238,7 +238,7 @@ const CarouselProductSection = () => {
       
       .gallery-inner {
         --w: 200px;
-        --h: 140px;
+        --h: 170px;
         --translateZ: calc((var(--w) + var(--h)) + 100px);
         --perspective: 1400px;
       }
@@ -265,8 +265,8 @@ const CarouselProductSection = () => {
       }
       
       .gallery-inner {
-        --w: 160px;
-        --h: 110px;
+        --w: 170px;
+        --h: 170px;
         --translateZ: calc((var(--w) + var(--h)) + 70px);
         --perspective: 1200px;
         --rotateX: -8deg;
@@ -312,8 +312,8 @@ const CarouselProductSection = () => {
       }
       
       .gallery-inner {
-        --w: 140px;
-        --h: 100px;
+        --w: 160px;
+        --h: 160px;
         --translateZ: calc((var(--w) + var(--h)) + 50px);
         --perspective: 1000px;
         --rotateX: -5deg;
@@ -361,8 +361,8 @@ const CarouselProductSection = () => {
       }
       
       .gallery-inner {
-        --w: 120px;
-        --h: 85px;
+        --w: 140px;
+        --h: 140px;
         --translateZ: calc((var(--w) + var(--h)) + 40px);
         --perspective: 900px;
         animation-duration: 45s;
@@ -407,7 +407,7 @@ const CarouselProductSection = () => {
   return (
     <section className="py-16 sm:py-20 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
       <style dangerouslySetInnerHTML={{ __html: galleryStyles }} />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-0 sm:mx-auto px-0 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div 
           className="text-center mb-12 sm:mb-16"
@@ -457,7 +457,6 @@ const CarouselProductSection = () => {
                   className="gallery-card"
                   style={{ 
                     '--index': index, 
-                    '--color-card': product.color 
                   }}
                 >
                   <div className="gallery-img">
@@ -467,7 +466,7 @@ const CarouselProductSection = () => {
                       layout="fill"
                       objectFit="cover"
                       className="object-cover"
-                      style={{ borderRadius: '16px' }}
+                      style={{ borderRadius: '5px' }}
                     />
                     <div className="product-overlay">
                       <div className="product-info">
@@ -489,7 +488,7 @@ const CarouselProductSection = () => {
 
         {/* Product Features Grid */}
         <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-16"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 px-4"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
