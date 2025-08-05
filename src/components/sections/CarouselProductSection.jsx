@@ -405,9 +405,9 @@ const CarouselProductSection = () => {
   `;
 
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+    <section className="py-16 sm:py-20 bg-gradient-to-b from-slate-50 to-white overflow-visible">
       <style dangerouslySetInnerHTML={{ __html: galleryStyles }} />
-      <div className="max-w-7xl mx-0 sm:mx-auto px-0 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-0 sm:mx-auto px-0 sm:px-6 lg:px-8 overflow-visible">
         {/* Section Header */}
         <motion.div 
           className="text-center mb-12 sm:mb-16"
@@ -444,7 +444,7 @@ const CarouselProductSection = () => {
             transition={{ delay: 0.3 }}
           >
             <div 
-              className={`gallery-inner ${isPaused ? 'paused' : ''}`}
+              className={`gallery-inner ${isPaused ? '' : ''}`}
               style={{ '--quantity': products.length }}
               onMouseEnter={() => !isMobile && setIsPaused(true)}
               onMouseLeave={() => !isMobile && setIsPaused(false)}

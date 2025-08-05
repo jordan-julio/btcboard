@@ -145,7 +145,6 @@ export const ProductsSection = () => {
                       objectFit="cover" 
                       className="rounded-2xl group-hover:scale-105 transition-transform duration-300"
                       placeholder="blur"
-                      blurDataURL="/api/placeholder/800/600" // Placeholder image
                       quality={80}
                     />
                   </div>
