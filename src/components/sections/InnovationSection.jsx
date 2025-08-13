@@ -1,44 +1,46 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Zap, Layers, Shield, Microscope, Award, Users } from 'lucide-react';
+import { Droplets, Bug, Recycle, Sparkles, Scissors, Wrench, Clock } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export const InnovationSection = () => {
-  const innovations = [
+  const t = useTranslations('innovation');
+  const keunggulan = [
     {
-      title: "Advanced Material Science",
-      description: "Cutting-edge polymer technology for superior performance and longevity in demanding applications.",
-      icon: <Microscope className="w-8 h-8" />
+      title: t('features.title1'),
+      description: t('features.description1'),
+      icon: <Droplets className="w-8 h-8" />
     },
     {
-      title: "Sustainable Manufacturing",
-      description: "Eco-friendly production processes with 100% recyclable materials and minimal environmental impact.",
-      icon: <Layers className="w-8 h-8" />
+      title: t('features.title2'),
+      description: t('features.description2'),
+      icon: <Bug className="w-8 h-8" />
     },
     {
-      title: "Enhanced Safety Standards",
-      description: "Fire-retardant properties exceeding industry requirements for maximum safety in all applications.",
-      icon: <Shield className="w-8 h-8" />
+      title: t('features.title3'),
+      description: t('features.description3'),
+      icon: <Recycle className="w-8 h-8" />
     },
     {
-      title: "Quality Assurance",
-      description: "Rigorous testing protocols ensuring consistent quality and performance across all product lines.",
-      icon: <Award className="w-8 h-8" />
+      title: t('features.title4'),
+      description: t('features.description4'),
+      icon: <Sparkles className="w-8 h-8" />
     },
     {
-      title: "Technical Innovation",
-      description: "Continuous R&D investment in next-generation PVC formulations and manufacturing techniques.",
-      icon: <Zap className="w-8 h-8" />
+      title: t('features.title5'),
+      description: t('features.description5'),
+      icon: <Wrench className="w-8 h-8" />
     },
     {
-      title: "Expert Support",
-      description: "Professional technical support and consultation services for optimal product selection and application.",
-      icon: <Users className="w-8 h-8" />
+      title: t('features.title7'),
+      description: t('features.description7'),
+      icon: <Clock className="w-8 h-8" />
     }
   ];
 
   return (
-    <section id="innovation" className="py-20 bg-white">
+    <section id="keunggulan-produk" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           className="text-center mb-16"
@@ -47,15 +49,15 @@ export const InnovationSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-800">
-            Innovation & Excellence
+            {t('title')}
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Leading the industry through advanced technology, sustainable practices, and unwavering commitment to quality.
+            {t('subtitle')}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {innovations.map((innovation, index) => (
+          {keunggulan.map((item, index) => (
             <motion.div
               key={index}
               className="group"
@@ -64,15 +66,15 @@ export const InnovationSection = () => {
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <div className="bg-slate-50 hover:bg-white p-8 rounded-xl border border-slate-200 hover:border-blue-300 transition-all duration-300 h-full hover:shadow-lg">
+              <div className="bg-slate-50 hover:bg-white p-8 rounded-xl border border-slate-200 hover:border-blue-300 h-full hover:shadow-lg">
                 <div className="inline-flex p-3 rounded-lg bg-blue-100 text-blue-600 mb-6">
-                  {innovation.icon}
+                  {item.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-slate-800 group-hover:text-blue-600 transition-colors">
-                  {innovation.title}
+                  {item.title}
                 </h3>
-                <p className="text-slate-600 leading-relaxed">
-                  {innovation.description}
+                <p className="text-slate-600 leading-relaxed text-sm">
+                  {item.description}
                 </p>
               </div>
             </motion.div>

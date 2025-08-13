@@ -3,8 +3,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play, CheckCircle, Star, Shield, Phone, Mail } from 'lucide-react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 export const HeroSection = ({ heroParallax, heroOpacity }) => {
+  const t = useTranslations('hero');
   return (
     <section className="relative min-h-screen bg-white overflow-hidden">
       {/* Enhanced Background with Mobile Optimization */}
@@ -35,7 +37,7 @@ export const HeroSection = ({ heroParallax, heroOpacity }) => {
               transition={{ delay: 0.2 }}
             >
               <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-              <span className="text-sm font-semibold text-emerald-700">Industry Leading PVC Solutions</span>
+              <span className="text-sm font-semibold text-emerald-700">{t('badge')}</span>
             </motion.div>
             
             {/* Mobile-Optimized Main Heading */}
@@ -45,9 +47,9 @@ export const HeroSection = ({ heroParallax, heroOpacity }) => {
               transition={{ delay: 0.3, duration: 0.8 }}
             >
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
-                Professional Grade{' '}
+                {t('title')}{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 relative">
-                  PVC Materials
+                  {t('titleHighlight')}
                   <motion.div
                     className="absolute -bottom-1 sm:-bottom-2 left-0 right-0 h-0.5 sm:h-1 bg-gradient-to-r from-blue-200 to-indigo-200 rounded-full"
                     initial={{ scaleX: 0 }}
@@ -65,8 +67,7 @@ export const HeroSection = ({ heroParallax, heroOpacity }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
-              Premium quality PVC boards engineered for superior performance, 
-              durability, and precision in modern construction projects. Built to exceed industry standards.
+              {t('subtitle')}
             </motion.p>
             
             {/* Mobile-Friendly Trust Indicators */}
@@ -78,15 +79,15 @@ export const HeroSection = ({ heroParallax, heroOpacity }) => {
             >
               <div className="flex items-center justify-center lg:justify-start gap-2 p-2 sm:p-0">
                 <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
-                <span className="text-sm font-semibold text-slate-700">25+ Years Experience</span>
+                <span className="text-sm font-semibold text-slate-700">{t('trustIndicators.experience')}</span>
               </div>
               <div className="flex items-center justify-center lg:justify-start gap-2 p-2 sm:p-0">
                 <Star className="w-5 h-5 text-yellow-500 flex-shrink-0" />
-                <span className="text-sm font-semibold text-slate-700">98% Client Satisfaction</span>
+                <span className="text-sm font-semibold text-slate-700">{t('trustIndicators.satisfaction')}</span>
               </div>
               <div className="flex items-center justify-center lg:justify-start gap-2 p-2 sm:p-0">
                 <Shield className="w-5 h-5 text-blue-500 flex-shrink-0" />
-                <span className="text-sm font-semibold text-slate-700">ISO Certified Quality</span>
+                <span className="text-sm font-semibold text-slate-700">{t('trustIndicators.certified')}</span>
               </div>
             </motion.div>
             
@@ -103,7 +104,7 @@ export const HeroSection = ({ heroParallax, heroOpacity }) => {
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 100, damping: 15 }}
               >
-                Explore Products 
+                {t('cta.exploreProducts')}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
               </motion.button>
               <motion.button 
@@ -113,7 +114,7 @@ export const HeroSection = ({ heroParallax, heroOpacity }) => {
                 transition={{ type: "spring", stiffness: 100, damping: 15 }}
               >
                 <Play className="w-5 h-5" />
-                Watch Demo
+                {t('cta.watchDemo')}
               </motion.button>
             </motion.div>
 
@@ -124,7 +125,7 @@ export const HeroSection = ({ heroParallax, heroOpacity }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
             >
-              <span className="text-sm text-slate-600 font-medium">Need immediate assistance?</span>
+              <span className="text-sm text-slate-600 font-medium">{t('cta.needHelp')}</span>
               <div className="flex items-center gap-4">
                 <motion.a 
                   href="tel:+1234567890" 
@@ -133,7 +134,7 @@ export const HeroSection = ({ heroParallax, heroOpacity }) => {
                   whileTap={{ scale: 0.95 }}
                 >
                   <Phone className="w-4 h-4" />
-                  <span className="text-sm font-semibold">Call Now</span>
+                  <span className="text-sm font-semibold">{t('cta.callNow')}</span>
                 </motion.a>
                 <motion.a 
                   href="mailto:info@company.com" 
@@ -142,7 +143,7 @@ export const HeroSection = ({ heroParallax, heroOpacity }) => {
                   whileTap={{ scale: 0.95 }}
                 >
                   <Mail className="w-4 h-4" />
-                  <span className="text-sm font-semibold">Email Us</span>
+                  <span className="text-sm font-semibold">{t('cta.emailUs')}</span>
                 </motion.a>
               </div>
             </motion.div>
@@ -162,7 +163,7 @@ export const HeroSection = ({ heroParallax, heroOpacity }) => {
                 style={{ y: heroParallax }}
               >
                 <Image
-                  src="/5.jpg"
+                  src="/lampiran Foto/Edit/Polos/IMG20220623100026.jpg"
                   alt="Professional PVC Construction Materials"
                   width={600}
                   height={400}
@@ -180,19 +181,19 @@ export const HeroSection = ({ heroParallax, heroOpacity }) => {
                 transition={{ delay: 1, duration: 0.6 }}
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="text-xl sm:text-3xl font-bold text-blue-600">10K+</div>
-                <div className="text-xs sm:text-sm text-slate-600 font-semibold">Projects Completed</div>
+                <div className="text-xl sm:text-3xl font-bold text-blue-600">{new Date().getFullYear() - 2018}+</div>
+                <div className="text-xs sm:text-sm text-slate-600 font-semibold">{t('stats.yearsInBusiness')}</div>
               </motion.div>
               
               <motion.div
-                className="absolute -right-2 sm:-right-6 bottom-4 sm:bottom-20 bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl p-3 sm:p-6 border border-slate-100/60"
+                className="hidden absolute -right-2 sm:-right-6 bottom-4 sm:bottom-20 bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl p-3 sm:p-6 border border-slate-100/60"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1.2, duration: 0.6 }}
                 whileHover={{ scale: 1.05 }}
               >
                 <div className="text-xl sm:text-3xl font-bold text-emerald-600">1M+</div>
-                <div className="text-xs sm:text-sm text-slate-600 font-semibold">Satisfied Customers</div>
+                <div className="text-xs sm:text-sm text-slate-600 font-semibold">{t('stats.satisfiedCustomers')}</div>
               </motion.div>
               
               {/* Enhanced Quality Badge */}
@@ -202,12 +203,12 @@ export const HeroSection = ({ heroParallax, heroOpacity }) => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.4, duration: 0.6 }}
               >
-                Premium Quality ⭐
+                {t('badges.premiumQuality')}
               </motion.div>
 
               {/* Additional Trust Element */}
               <motion.div
-                className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 bg-emerald-500 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold shadow-lg"
+                className="hidden absolute bottom-3 sm:bottom-6 left-3 sm:left-6 bg-emerald-500 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold shadow-lg"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.6, duration: 0.6 }}

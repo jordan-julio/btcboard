@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Eye, Layers, Palette } from 'lucide-react';
 import Image from 'next/image';
 
-const CarouselProductSection = () => {
+const CarouselProductSection = ({ products }) => {
   const [isPaused, setIsPaused] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -17,78 +17,18 @@ const CarouselProductSection = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const products = [
-    {
-      id: 1,
-      name: "Premium White PVC Board",
-      specs: "15mm • UV Resistant",
-      color: "142, 249, 252",
-      image: "/1.jpg"
-    },
-    {
-      id: 2,
-      name: "Colored PVC Sheets",
-      specs: "10mm • Multiple Colors",
-      color: "142, 252, 204",
-      image: "/2.jpg"
-    },
-    {
-      id: 3,
-      name: "Industrial Grade PVC",
-      specs: "25mm • Chemical Resistant",
-      color: "142, 252, 157",
-      image: "/3.jpg"
-    },
-    {
-      id: 4,
-      name: "Wood Grain Finish",
-      specs: "18mm • Natural Look",
-      color: "215, 252, 142",
-      image: "/4.jpg"
-    },
-    {
-      id: 5,
-      name: "High Density Core",
-      specs: "20mm • Superior Strength",
-      color: "252, 252, 142",
-      image: "/5.jpg"
-    },
-    {
-      id: 6,
-      name: "Fire Retardant PVC",
-      specs: "12mm • Safety Certified",
-      color: "252, 208, 142",
-      image: "/6.jpg"
-    },
-    {
-      id: 7,
-      name: "Textured Surface",
-      specs: "16mm • Anti-Slip",
-      color: "252, 142, 142",
-      image: "/7.jpg"
-    },
-    {
-      id: 8,
-      name: "Decorative Panels",
-      specs: "8mm • Pattern Design",
-      color: "252, 142, 239",
-      image: "/8.jpg"
-    },
-    {
-      id: 9,
-      name: "Marine Grade PVC",
-      specs: "22mm • Waterproof",
-      color: "204, 142, 252",
-      image: "/a.jpg"
-    },
-    {
-      id: 10,
-      name: "Foam Core Boards",
-      specs: "14mm • Lightweight",
-      color: "142, 202, 252",
-      image: "/b.jpg"
-    }
-  ];
+  if (!products || products.length === 0) {
+    return (
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+        <h2 className="text-3xl font-bold text-slate-800 mb-4">
+          No Products Available
+        </h2>
+        <p className="text-lg text-slate-600 mb-8">
+          We currently do not have any products to display. Please check back later.
+        </p>
+    </div>
+    );
+  }
 
   const galleryStyles = `
     .gallery-wrapper {
@@ -488,7 +428,7 @@ const CarouselProductSection = () => {
 
         {/* Product Features Grid */}
         <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 px-4"
+          className="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 px-4"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

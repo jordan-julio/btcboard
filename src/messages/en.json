@@ -1,0 +1,394 @@
+{
+  "navigation": {
+    "products": "Products",
+    "aboutus": "About Us",
+    "innovation": "Innovation",
+    "contact": "Contact",
+    "getQuote": "Get Quote"
+  },
+  "hero": {
+    "badge": "Industry Leading PVC Solutions",
+    "title": "Professional Grade",
+    "titleHighlight": "PVC Materials",
+    "subtitle": "Premium quality PVC boards engineered for superior performance, durability, and precision in modern construction projects. Built to exceed industry standards.",
+    "trustIndicators": {
+      "experience": "7+ Years Experience",
+      "satisfaction": "98% Client Satisfaction", 
+      "certified": "ISO Certified Quality"
+    },
+    "clientSatisfaction": "Client Satisfaction",
+    "yearsOfExcellence": "Years of Excellence",
+    "cta": {
+      "exploreProducts": "Explore Products",
+      "watchDemo": "Watch Demo",
+      "needHelp": "Need immediate assistance?",
+      "callNow": "Call Now",
+      "emailUs": "Email Us"
+    },
+    "stats": {
+      "projectsCompleted": "Projects Completed",
+      "satisfiedCustomers": "Satisfied Customers",
+      "yearsInBusiness": "Years in Business",
+      "pvcBoardsMade": "PVC Boards Made"
+    },
+    "badges": {
+      "premiumQuality": "Premium Quality ⭐",
+      "warranty": "1 Year Warranty"
+    }
+  },
+  "quote": {
+    "title": "Get Your Quote",
+    "subtitle": "Fill in your project details for accurate pricing",
+    "quickContact": "OR FILL THE FORM BELOW",
+    "callNow": "Call Now",
+    "whatsappNow": "WhatsApp", 
+    "emailNow": "Email",
+    "whatsapp": {
+      "greeting": "Hi! I'd like to get more information on PVC materials for:",
+      "project": "Project",
+      "quantity": "Quantity",
+      "location": "Location",
+      "notSpecified": "Not specified",
+      "contact": "Please contact me for detailed discussion."
+    },
+    "email": {
+      "subject": "PVC Materials Quote Request",
+      "greeting": "Dear Team,",
+      "request": "I would like to request more information for PVC materials with the following details:",
+      "contact": "Please contact me at your earliest convenience.",
+      "regards": "Best regards,"
+    },
+    "form": {
+      "orFillForm": "OR FILL THE FORM BELOW",
+      "fullName": "Full Name *",
+      "company": "Company Name",
+      "email": "Email Address *",
+      "phone": "Phone Number *",
+      "projectType": "Project Type *",
+      "quantity": "Estimated Quantity",
+      "location": "Project Location",
+      "specifications": "Project Specifications",
+      "placeholders": {
+        "name": "Your full name",
+        "company": "Company name (optional)",
+        "email": "your@email.com",
+        "phone": "+1 (555) 123-4567",
+        "selectProject": "Select project type",
+        "quantity": "e.g., 100 sq meters",
+        "location": "City, State/Country",
+        "specifications": "Please describe your requirements, preferred thickness, colors, special features, or leave blank, etc."
+      }
+    },
+    "projectTypes": {
+      "bathroom": "Bathroom/Kitchen Renovation",
+      "office": "Office Interior", 
+      "commercial": "Commercial Building",
+      "residential": "Residential Project",
+      "industrial": "Industrial Application",
+      "custom": "Custom Project"
+    },
+    "submit": {
+      "whatsapp": "Send via WhatsApp",
+      "email": "Send via Email",
+      "response": "We'll respond within 24 hours with a detailed quote"
+    }
+  },
+  "productsHomePage": [
+    {
+      "id": 1,
+      "name": "Islamic Prayer Niche Wall Panel",
+      "specs": "CNC-cut PVC • 12mm • Walnut & Ivory finish",
+      "color": "102, 74, 54",
+      "image": "/lampiran Foto/Edit/2D/file_00000000eef861f68d584816dbca0c64.png"
+    },
+    {
+      "id": 2,
+      "name": "3D Acoustic Wall Panel Set",
+      "specs": "PVC + foam samples • showroom display",
+      "color": "206, 160, 80",
+      "image": "/lampiran Foto/Edit/file_00000000f6e461f7870e257f7a13c812.png"
+    },
+    {
+      "id": 3,
+      "name": "Exterior Decorative Lattice Panel",
+      "specs": "Weatherproof PVC • matte white • modular",
+      "color": "240, 240, 240",
+      "image": "/lampiran Foto/Edit/WhatsApp Image 2025-08-05 at 15.43.45.jpeg"
+    },
+    {
+      "id": 4,
+      "name": "Black Marble PVC Wall Sheet",
+      "specs": "High-gloss finish • large format",
+      "color": "20, 20, 22",
+      "image": "/lampiran Foto/Edit/Laminating/DB7FF596-3BCD-4A74-96EE-8D89EA99EC47.png"
+    },
+    {
+      "id": 5,
+      "name": "Art Deco Feature Wall Panel",
+      "specs": "CNC-carved PVC • matte white",
+      "color": "235, 233, 226",
+      "image": "/lampiran Foto/Edit/3D/file_00000000921c61f5bdb3334751f44e4d.png"
+    },
+    {
+      "id": 6,
+      "name": "Backlit Pattern Panel",
+      "specs": "Laser-cut + 3D textures • warm backlight",
+      "color": "230, 205, 150",
+      "image": "/lampiran Foto/Edit/3D/file_00000000424061f88b22903e54ceeb91 (1).png"
+    },
+    {
+      "id": 7,
+      "name": "Bathroom Vanity Cabinet (PVC Board)",
+      "specs": "Waterproof • 16mm board • integrated basin",
+      "color": "245, 245, 245",
+      "image": "/1.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Curved Reception Desk (Solid Surface)",
+      "specs": "Seamless top • PVC wall cladding",
+      "color": "230, 224, 210",
+      "image": "/3.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Compact Vanity Set",
+      "specs": "PVC cabinet + mirror • space-saving",
+      "color": "236, 230, 216",
+      "image": "/8.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Laminate Door with Room Sign",
+      "specs": "PVC skin • sound-reduced core • hotel grade",
+      "color": "168, 121, 78",
+      "image": "/7.jpg"
+    }
+  ],
+  "company": {
+    "about": {
+      "title": "About BTC Board",
+      "description": "BTC Board is a premium PVC Board product manufactured by CV. Bagong Teknindo Cemerlang since 2018. We use high-quality selected materials to provide the best products for our customers. In addition to using selected materials, BTC Board is processed with advanced machinery and can be shaped according to customer requirements.",
+      "established": "Established 2018"
+    },
+    "vision": {
+      "title": "Our Vision",
+      "content": "To become a solution for contractors and architects in providing quality PVC Board materials."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "breakthrough": "Breakthrough: Always innovate in presenting quality PVC Board products that can be a solution in design and construction",
+      "teamwork": "Teamwork: Strengthen relationships between employees by respecting each other and creating a safe work environment",
+      "excellence": "Customer Excellence: Always provide the best for customers in terms of products and services",
+      "selling": "Best Selling: Become the #1 brand and dominate the PVC Board market by providing quality products at competitive prices",
+      "outstanding": "Outstanding: Always maintain good work performance in product innovation, quality and work efficiency",
+      "accountability": "Accountability: Become a brand that can be trusted and relied upon by the community",
+      "responsible": "Responsible: Responsible and caring for the welfare of society and the environment",
+      "development": "Development: Always develop product innovations that are relevant to customer needs"
+    }
+  },
+  "features": {
+    "title": "Product Advantages",
+    "waterproof": {
+      "title": "Water Resistant",
+      "description": "BTC Board is a water-resistant product that will not be damaged when exposed to water. Can replace other building materials that are not water resistant, such as plywood, multiplex, gypsum, and many more."
+    },
+    "termiteProof": {
+      "title": "Termite Resistant", 
+      "description": "BTC Board is a termite-resistant product, and can be used as a replacement for building materials such as plywood, multiplex, gypsum, and many more."
+    },
+    "recyclable": {
+      "title": "Recyclable",
+      "description": "BTC Board is made from a plastic mixture that allows it to be processed and reused, so it can be said that the BTC Board manufacturing process is zero waste."
+    },
+    "smooth": {
+      "title": "Smooth Surface",
+      "description": "BTC Board has a smooth surface making the work process easier. With a smooth surface, BTC Board is easy to carve and laminate."
+    },
+    "easyCarving": {
+      "title": "Easy to Carve",
+      "description": "BTC Board is easy to carve with various carving machines, one of which is a CNC machine. Our CNC machine has good accuracy and can cut BTC Board according to customer requirements."
+    },
+    "easyWork": {
+      "title": "Easy Processing",
+      "description": "BTC Board can be processed using common carpentry tools, so customers don't need to be confused in finding the right tools to process BTC Board."
+    },
+    "durable": {
+      "title": "Durable",
+      "description": "BTC Board has strong durability so it can be used repeatedly. Therefore BTC Board can be used as formwork, furniture, and many more."
+    }
+  },
+  "applications": {
+    "title": "Product Applications",
+    "furniture": "Can be used for furniture such as cabinets, tables, chairs, kitchen sets, toilet cubicles, and many more",
+    "partition": "Can be used as partition walls, wall coverings or ceilings",
+    "signage": "Can be used for signage and displays such as making nameplates, billboards and promotional displays",
+    "decorative": "Can be used to make decorative panels, interior and exterior design elements",
+    "divider": "Can be used as flexible and elegant room dividers"
+  },
+  "products": {
+    "sectionLabel": "Explore Our Products",
+    "title": "Explore Our Products",
+    "titleHighlight": "Premium PVC Boards",
+    "description": "Discover our range of high-quality PVC boards engineered for durability, versatility, and a clean finish—ideal for modern construction and interior projects.",
+    "featuresLabel": "Features",
+    "applicationsLabel": "Applications",
+    "viewDetails": "View Details",
+    "getQuote": "Get Quote",
+    "exampleLabel": "Example",
+
+    "cta": {
+      "title": "Need Specifications or Pricing?",
+      "description": "Tell us about your project and we’ll recommend the right board, thickness, and finish—then send a detailed quote.",
+      "schedule": "Schedule Consultation",
+      "catalog": "Download Catalog"
+    },
+
+    "modal": {
+      "title": "Book a Consultation",
+      "close": "Close",
+      "immediateHelp": "Need immediate help?",
+      "callExperts": "Talk directly with our product specialist.",
+      "callNow": "Call Now",
+      "scheduleOnline": "Schedule Online",
+      "selectDate": "Select a date",
+      "selectTime": "Select a time",
+      "confirm": "Confirm Booking"
+    },
+
+    "categories": {
+      "2d": {
+        "name": "2D PVC Board",
+        "tagline": "Versatile flat boards for universal use",
+        "description": "Flat-surface PVC boards suitable for furniture, wall cladding, ceilings, signage, and more. Available in multiple colors and sizes.",
+        "specs": "Smooth surface • Multiple thickness options",
+        "features": [
+          "Water Resistant",
+          "Termite Resistant",
+          "Recyclable"
+        ],
+        "applications": [
+          "Furniture",
+          "Partition Walls",
+          "Signage"
+        ]
+      },
+      "3d": {
+        "name": "3D PVC Board",
+        "tagline": "Elegant textures for modern interiors",
+        "description": "Three-dimensional surfaces for decorative panels, wall features, ceilings, and room dividers.",
+        "specs": "CNC/laser friendly • Fine detail",
+        "features": [
+          "Smooth Surface",
+          "Easy to Carve",
+          "Easy Processing"
+        ],
+        "applications": [
+          "Decorative Panels",
+          "Interior Design Elements",
+          "Room Dividers"
+        ]
+      },
+      "laminating": {
+        "name": "Laminating PVC Board",
+        "tagline": "Premium laminated finish for high-wear areas",
+        "description": "PVC boards with durable laminated surfaces for furniture, partitions, and signage where a premium finish is required.",
+        "specs": "High-gloss or matte • Scratch resistant",
+        "features": [
+          "Durable",
+          "Water Resistant",
+          "Termite Resistant"
+        ],
+        "applications": [
+          "Furniture",
+          "Partition Walls",
+          "Signage"
+        ]
+      },
+      "polos": {
+        "name": "Polos PVC Board",
+        "tagline": "Plain boards for custom finishing",
+        "description": "Plain-surface PVC boards ideal for paint, lamination, or custom treatments.",
+        "specs": "Uniform density • Paint/laminate ready",
+        "features": [
+          "Smooth Surface",
+          "Easy Processing",
+          "Recyclable"
+        ],
+        "applications": [
+          "Furniture",
+          "Partition Walls",
+          "Signage"
+        ]
+      }
+    }
+  },
+
+  "innovation": {
+    "title": "Innovation at BTC Board",
+    "subtitle": "Leading the Way in PVC Solutions",
+    "features": {
+      "title1": "Water Resistant",
+      "description1": "BTC Board is a water-resistant product that will not be damaged if exposed to water. BTC Board can be used as a substitute for other building materials that are not water-resistant, such as plywood, particle board, gypsum, and many more.",
+      "title2": "Termite Resistant",
+      "description2": "BTC Board is a termite-resistant product and can be used as a substitute for building materials such as plywood, particle board, gypsum, and many more.",
+      "title3": "Recyclable",
+      "description3": "BTC Board is made from a plastic blend that allows it to be processed and reused, making the production process of BTC Board zero waste.",
+      "title4": "Smooth Surface",
+      "description4": "BTC Board has a smooth surface that facilitates the working process. With a smooth surface, BTC Board is easy to carve and laminate.",
+      "title5": "Easy Processing",
+      "description5": "BTC Board can be processed using common woodworking tools, so customers do not need to worry about finding the right tools to process BTC Board.",
+      "title7": "Durable",
+      "description7": "BTC Board has strong durability so it can be used repeatedly. Therefore, BTC Board can be used as Formwork, Furniture, and much more."
+    }
+  },
+  "footer": {
+    "brand": {
+      "title": "BTC BOARD",
+      "company": "Bagong Teknindo Cemerlang"
+    },
+    "description": "BTC Board is a premium PVC Board product manufactured by CV. Bagong Teknindo Cemerlang since 2018. We use high-quality selected materials to provide the best products for our customers.",
+    "columns": {
+      "solutions": "Our Solutions",
+      "resources": "Resources",
+      "contact": "Contact Us"
+    },
+    "solutionLinks": [
+      "Commercial Projects",
+      "Industrial Applications",
+      "Residential Use",
+      "Custom Solutions"
+    ],
+    "resourceLinks": [
+      "Product Specifications",
+      "Installation Guide",
+      "Quality Certificates",
+      "Technical Support"
+    ],
+    "contact": {
+      "phoneLabel": "Phone",
+      "emailLabel": "Email",
+      "addressLabel": "Address",
+      "phoneValue": "+62 812 3456 7890",
+      "emailValue": "info@btc.co.id",
+      "addressLine1": "Jl. Industri No. 123",
+      "addressLine2": "Surabaya, East Java",
+      "addressLine3": "Indonesia 60111"
+    },
+    "legal": {
+      "copyright": "© {year} Bagong Teknindo Cemerlang. All rights reserved.",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "quality": "Quality Standards"
+    },
+    "social": {
+      "instagram": "Instagram",
+      "x": "X"
+    }
+  },
+
+  "common": {
+    "reset": "Reset"
+  }
+  
+}

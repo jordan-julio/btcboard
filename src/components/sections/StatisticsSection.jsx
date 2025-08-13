@@ -3,19 +3,20 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Building2, Star, Layers, Award } from 'lucide-react';
 import { AnimatedCounter } from '../utility/AnimatedCounter';
+import { useTranslations } from 'next-intl';
 
 export const StatisticsSection = () => {
+  const t = useTranslations();
   const stats = [
-    { number: "10000", suffix: "+", label: "Projects Completed", icon: <Building2 /> },
-    { number: "98", suffix: "%", label: "Client Satisfaction", icon: <Star /> },
-    { number: "100000", suffix: "+", label: "Satisfied Customers", icon: <Layers /> },
-    { number: "5", suffix: "+", label: "Years of Excellence", icon: <Award /> }
+    { number: "10000", suffix: "+", label: t('hero.stats.pvcBoardsMade'), icon: <Building2 /> },
+    { number: "98", suffix: "%", label: t('hero.clientSatisfaction'), icon: <Star /> },
+    { number: "7", suffix: "+", label: t('hero.yearsOfExcellence'), icon: <Award /> }
   ];
 
   return (
     <section className="py-20 bg-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
           {stats.map((stat, index) => (
             <motion.div
               key={index}

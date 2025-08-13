@@ -2,9 +2,15 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone, MessageCircle, Mail, FileText, Calculator, User, Building2, MapPin } from 'lucide-react';
+import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
+import LanguageSwitcher from '../LanguageSwitcher';
 
 export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
+  const locale = useLocale();
+  console.log('Navigation - current locale from useLocale():', locale);
+  const t = useTranslations('navigation');
+  const tQuote = useTranslations('quote');
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [quoteForm, setQuoteForm] = useState({
     name: '',
@@ -18,12 +24,12 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
   });
 
   const projectTypes = [
-    'Bathroom/Kitchen Renovation',
-    'Office Interior',
-    'Commercial Building',
-    'Residential Project',
-    'Industrial Application',
-    'Custom Project'
+    tQuote('projectTypes.bathroom'),
+    tQuote('projectTypes.office'),
+    tQuote('projectTypes.commercial'),
+    tQuote('projectTypes.residential'),
+    tQuote('projectTypes.industrial'),
+    tQuote('projectTypes.custom')
   ];
 
   const handleInputChange = (field, value) => {
@@ -31,21 +37,68 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
   };
 
   const openWhatsApp = () => {
-    const message = `Hi! I'd like to get a quote for PVC materials:\n\nProject: ${quoteForm.projectType || 'Not specified'}\nQuantity: ${quoteForm.quantity || 'Not specified'}\nLocation: ${quoteForm.location || 'Not specified'}\n\nPlease contact me for detailed discussion.`;
-    const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-  };
+    // Build the message with proper translations
+    const greeting = tQuote('whatsapp.greeting');
+    const projectLabel = tQuote('whatsapp.project');
+    const quantityLabel = tQuote('whatsapp.quantity');
+    const locationLabel = tQuote('whatsapp.location');
+    const notSpecified = tQuote('whatsapp.notSpecified');
+    const contactMessage = tQuote('whatsapp.contact');
+    
+    const message = `${greeting}
 
-  const callForQuote = () => {
-    window.location.href = 'tel:+1234567890';
-  };
+      ${projectLabel}: ${quoteForm.projectType || notSpecified}
+      ${quantityLabel}: ${quoteForm.quantity || notSpecified}
+      ${locationLabel}: ${quoteForm.location || notSpecified}
+
+      ${contactMessage}
+    `;
+    const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    };
+
+    const callForQuote = () => {
+      window.location.href = 'tel:+1234567890';
+    };
 
   const emailQuote = () => {
-    const subject = 'PVC Materials Quote Request';
-    const body = `Dear Team,\n\nI would like to request a quote for PVC materials with the following details:\n\nName: ${quoteForm.name}\nCompany: ${quoteForm.company}\nProject Type: ${quoteForm.projectType}\nQuantity: ${quoteForm.quantity}\nSpecifications: ${quoteForm.specifications}\nLocation: ${quoteForm.location}\n\nPlease contact me at your earliest convenience.\n\nBest regards,\n${quoteForm.name}`;
+    const subject = tQuote('email.subject');
+    const greeting = tQuote('email.greeting');
+    const request = tQuote('email.request');
+    const nameLabel = tQuote('form.fullName');
+    const companyLabel = tQuote('form.company');
+    const projectTypeLabel = tQuote('form.projectType');
+    const quantityLabel = tQuote('form.quantity');
+    const specificationsLabel = tQuote('form.specifications');
+    const locationLabel = tQuote('form.location');
+    const contactMessage = tQuote('email.contact');
+    const regards = tQuote('email.regards');
     
+    const body = `
+      ${greeting}
+      ${request}
+
+      ${nameLabel}: ${quoteForm.name}
+      ${companyLabel}: ${quoteForm.company}
+      ${projectTypeLabel}: ${quoteForm.projectType}
+      ${quantityLabel}: ${quoteForm.quantity}
+      ${specificationsLabel}: ${quoteForm.specifications}
+      ${locationLabel}: ${quoteForm.location}
+
+      ${contactMessage}
+
+      ${regards}
+      ${quoteForm.name}
+    `;
+        
     window.location.href = `mailto:quote@company.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
+
+  const navigationItems = [
+    { key: 'products', href: '/products' },
+    { key: 'aboutus', href: '/about' },
+    { key: 'innovation', href: '/innovation' }
+  ];
 
   return (
     <>
@@ -68,17 +121,17 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
             
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
-              {['Products', 'Projects', 'Innovation'].map((item, index) => (
+              {navigationItems.map((item, index) => (
                 <motion.a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+                  key={item.key}
+                  href={item.href}
                   className="relative text-slate-600 hover:text-slate-900 transition-colors font-medium"
                   whileHover={{ scale: 1.05 }}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  {item}
+                  {t(item.key)}
                   <motion.div
                     className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-600"
                     initial={{ scaleX: 0 }}
@@ -87,6 +140,10 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
                   />
                 </motion.a>
               ))}
+              
+              {/* Language Switcher */}
+              <LanguageSwitcher />
+              
               <motion.button 
                 className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md flex items-center gap-2"
                 whileHover={{ scale: 1.02 }}
@@ -94,7 +151,7 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
                 onClick={() => setIsQuoteModalOpen(true)}
               >
                 <Calculator className="w-4 h-4" />
-                Get Quote
+                {t('getQuote')}
               </motion.button>
             </div>
 
@@ -137,19 +194,25 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
               </button>
               
               <div className="mt-20 space-y-6">
-                {['Products', 'Projects', 'Innovation', 'Contact'].map((item, index) => (
+                {navigationItems.map((item, index) => (
                   <motion.a
-                    key={item}
-                    href={`#${item.toLowerCase()}`}
+                    key={item.key}
+                    href={item.href}
                     className="block text-xl font-medium text-slate-800 hover:text-blue-600 transition-colors"
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    {item}
+                    {t(item.key)}
                   </motion.a>
                 ))}
+                
+                {/* Mobile Language Switcher */}
+                <div className="pt-4">
+                  <LanguageSwitcher />
+                </div>
+                
                 <motion.button 
                   className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium mt-8 flex items-center justify-center gap-2"
                   initial={{ opacity: 0, y: 20 }}
@@ -161,7 +224,7 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
                   }}
                 >
                   <Calculator className="w-4 h-4" />
-                  Get Quote
+                  {t('getQuote')}
                 </motion.button>
               </div>
             </motion.div>
@@ -191,9 +254,9 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
                 <div>
                   <h3 className="text-2xl font-bold text-slate-800 flex items-center gap-2">
                     <Calculator className="w-6 h-6 text-blue-600" />
-                    Get Your Quote
+                    {tQuote('title')}
                   </h3>
-                  <p className="text-slate-600 mt-1">Fill in your project details for accurate pricing</p>
+                  <p className="text-slate-600 mt-1">{tQuote('subtitle')}</p>
                 </div>
                 <button
                   onClick={() => setIsQuoteModalOpen(false)}
@@ -212,7 +275,7 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
                   whileTap={{ scale: 0.98 }}
                 >
                   <Phone className="w-4 h-4" />
-                  <span className="hidden sm:inline">Call Now</span>
+                  <span className="hidden sm:inline">{tQuote('callNow')}</span>
                 </motion.button>
                 
                 <motion.button
@@ -222,7 +285,7 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
                   whileTap={{ scale: 0.98 }}
                 >
                   <MessageCircle className="w-4 h-4" />
-                  <span className="hidden sm:inline">WhatsApp</span>
+                  <span className="hidden sm:inline">{tQuote('whatsappNow')}</span>
                 </motion.button>
                 
                 <motion.button
@@ -232,14 +295,14 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
                   whileTap={{ scale: 0.98 }}
                 >
                   <Mail className="w-4 h-4" />
-                  <span className="hidden sm:inline">Email</span>
+                  <span className="hidden sm:inline">{tQuote('emailNow')}</span>
                 </motion.button>
               </div>
 
               <div className="text-center mb-6">
                 <div className="flex items-center justify-center gap-4">
                   <div className="h-px bg-slate-300 flex-1"></div>
-                  <span className="text-sm text-slate-500 font-medium">OR FILL THE FORM BELOW</span>
+                  <span className="text-sm text-slate-500 font-medium">{tQuote('form.orFillForm')}</span>
                   <div className="h-px bg-slate-300 flex-1"></div>
                 </div>
               </div>
@@ -251,28 +314,28 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
                       <User className="w-4 h-4 inline mr-1" />
-                      Full Name *
+                      {tQuote('form.fullName')} *
                     </label>
                     <input
                       type="text"
                       value={quoteForm.name}
                       onChange={(e) => handleInputChange('name', e.target.value)}
                       className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
-                      placeholder="Your full name"
+                      placeholder={tQuote('form.placeholders.name')}
                     />
                   </div>
                   
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
                       <Building2 className="w-4 h-4 inline mr-1" />
-                      Company Name
+                      {tQuote('form.company')}
                     </label>
                     <input
                       type="text"
                       value={quoteForm.company}
                       onChange={(e) => handleInputChange('company', e.target.value)}
                       className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
-                      placeholder="Company name (optional)"
+                      placeholder={tQuote('form.placeholders.company')}
                     />
                   </div>
                 </div>
@@ -282,28 +345,28 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
                       <Mail className="w-4 h-4 inline mr-1" />
-                      Email Address *
+                      {tQuote('form.email')} *
                     </label>
                     <input
                       type="email"
                       value={quoteForm.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
                       className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
-                      placeholder="your@email.com"
+                      placeholder={tQuote('form.placeholders.email')}
                     />
                   </div>
                   
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
                       <Phone className="w-4 h-4 inline mr-1" />
-                      Phone Number *
+                      {tQuote('form.phone')} *
                     </label>
                     <input
                       type="tel"
                       value={quoteForm.phone}
                       onChange={(e) => handleInputChange('phone', e.target.value)}
                       className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
-                      placeholder="+1 (555) 123-4567"
+                      placeholder={tQuote('form.placeholders.phone')}
                     />
                   </div>
                 </div>
@@ -312,30 +375,30 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
-                      Project Type *
+                      {tQuote('form.projectType')} *
                     </label>
                     <select
                       value={quoteForm.projectType}
                       onChange={(e) => handleInputChange('projectType', e.target.value)}
                       className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
                     >
-                      <option value="">Select project type</option>
-                      {projectTypes.map((type) => (
-                        <option key={type} value={type}>{type}</option>
+                      <option value="">{tQuote('form.placeholders.selectProject')}</option>
+                      {projectTypes.map((type, index) => (
+                        <option key={index} value={type}>{type}</option>
                       ))}
                     </select>
                   </div>
                   
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
-                      Estimated Quantity
+                      {tQuote('form.quantity')}
                     </label>
                     <input
                       type="text"
                       value={quoteForm.quantity}
                       onChange={(e) => handleInputChange('quantity', e.target.value)}
                       className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
-                      placeholder="e.g., 100 sq meters"
+                      placeholder={tQuote('form.placeholders.quantity')}
                     />
                   </div>
                 </div>
@@ -343,28 +406,28 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">
                     <MapPin className="w-4 h-4 inline mr-1" />
-                    Project Location
+                    {tQuote('form.location')}
                   </label>
                   <input
                     type="text"
                     value={quoteForm.location}
                     onChange={(e) => handleInputChange('location', e.target.value)}
                     className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
-                    placeholder="City, State/Country"
+                    placeholder={tQuote('form.placeholders.location')}
                   />
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">
                     <FileText className="w-4 h-4 inline mr-1" />
-                    Project Specifications
+                    {tQuote('form.specifications')}
                   </label>
                   <textarea
                     value={quoteForm.specifications}
                     onChange={(e) => handleInputChange('specifications', e.target.value)}
                     rows={3}
                     className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors resize-none"
-                    placeholder="Please describe your requirements, preferred thickness, colors, special features, or leave blank, etc."
+                    placeholder={tQuote('form.placeholders.specifications')}
                   />
                 </div>
 
@@ -377,7 +440,7 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
                     whileTap={{ scale: 0.98 }}
                   >
                     <MessageCircle className="w-4 h-4" />
-                    Send via WhatsApp
+                    {tQuote('submit.whatsapp')}
                   </motion.button>
                   
                   <motion.button
@@ -387,12 +450,12 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
                     whileTap={{ scale: 0.98 }}
                   >
                     <Mail className="w-4 h-4" />
-                    Send via Email
+                    {tQuote('submit.email')}
                   </motion.button>
                 </div>
 
                 <div className="text-center text-sm text-slate-500 pt-2">
-                  We'll respond within 24 hours with a detailed quote
+                  {tQuote('submit.response')}
                 </div>
               </div>
             </motion.div>

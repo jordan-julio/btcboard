@@ -1,0 +1,390 @@
+{
+  "navigation": {
+    "products": "Produk",
+    "aboutus": "Tentang Kami", 
+    "innovation": "Inovasi",
+    "contact": "Kontak",
+    "getQuote": "Minta Penawaran"
+  },
+  "hero": {
+    "badge": "Solusi PVC Terdepan di Industri",
+    "title": "Material PVC",
+    "titleHighlight": "Kelas Profesional",
+    "subtitle": "Papan PVC berkualitas premium yang dirancang untuk performa superior, daya tahan, dan presisi dalam proyek konstruksi modern. Dibuat untuk melampaui standar industri.",
+    "trustIndicators": {
+      "experience": "Pengalaman 7+ Tahun",
+      "satisfaction": "98% Kepuasan Klien",
+      "certified": "Kualitas Bersertifikat ISO"
+    },
+    "clientSatisfaction": "Kepuasan Klien",
+    "yearsOfExcellence": "Tahun Keunggulan",
+    "cta": {
+      "exploreProducts": "Jelajahi Produk",
+      "watchDemo": "Tonton Demo",
+      "needHelp": "Butuh bantuan segera?",
+      "callNow": "Telepon Sekarang",
+      "emailUs": "Email Kami"
+    },
+    "stats": {
+      "projectsCompleted": "Proyek Selesai",
+      "satisfiedCustomers": "Pelanggan Puas",
+      "yearsInBusiness": "Tahun Beroperasi",
+      "pvcBoardsMade": "Papan PVC Dibuat"
+    },
+    "badges": {
+      "premiumQuality": "Kualitas Premium ⭐",
+      "warranty": "Garansi 1 Tahun"
+    }
+  },
+  "quote": {
+    "title": "Dapatkan Penawaran Anda",
+    "subtitle": "Isi detail proyek Anda untuk penentuan harga yang akurat",
+    "quickContact": "ATAU ISI FORMULIR DI BAWAH",
+    "callNow": "Telepon",
+    "whatsappNow": "WhatsApp",
+    "emailNow": "Email",
+    "whatsapp": {
+      "greeting": "Halo! Saya ingin mendapatkan informasi lanjut untuk material PVC:",
+      "project": "Proyek",
+      "quantity": "Kuantitas",
+      "location": "Lokasi",
+      "notSpecified": "Tidak disebutkan",
+      "contact": "Silakan hubungi saya untuk diskusi detail."
+    },
+    "email": {
+      "subject": "Permintaan Material PVC",
+      "greeting": "Tim yang terhormat,",
+      "request": "Saya ingin meminta penawaran untuk material PVC dengan detail sebagai berikut:",
+      "contact": "Mohon hubungi saya sesegera mungkin.",
+      "regards": "Hormat saya,"
+    },
+    "form": {
+      "orFillForm": "ATAU ISI FORMULIR DI BAWAH",
+      "fullName": "Nama Lengkap *",
+      "company": "Nama Perusahaan",
+      "email": "Alamat Email *", 
+      "phone": "Nomor Telepon *",
+      "projectType": "Jenis Proyek *",
+      "quantity": "Perkiraan Kuantitas",
+      "location": "Lokasi Proyek",
+      "specifications": "Spesifikasi Proyek",
+      "placeholders": {
+        "name": "Nama lengkap Anda",
+        "company": "Nama perusahaan (opsional)",
+        "email": "email@anda.com",
+        "phone": "+62 812 3456 7890",
+        "selectProject": "Pilih jenis proyek",
+        "quantity": "mis., 100 meter persegi",
+        "location": "Kota, Provinsi/Negara",
+        "specifications": "Silakan jelaskan kebutuhan Anda, ketebalan yang diinginkan, warna, fitur khusus, atau kosongkan, dll."
+      }
+    },
+    "projectTypes": {
+      "bathroom": "Renovasi Kamar Mandi/Dapur",
+      "office": "Interior Kantor",
+      "commercial": "Bangunan Komersial", 
+      "residential": "Proyek Residensial",
+      "industrial": "Aplikasi Industri",
+      "custom": "Proyek Kustom"
+    },
+    "submit": {
+      "whatsapp": "Kirim via WhatsApp",
+      "email": "Kirim via Email",
+      "response": "Kami akan merespons dalam 24 jam dengan penawaran detail"
+    }
+  },
+  "productsHomePage": [
+    {
+      "id": 1,
+      "name": "Panel Dinding Mihrab Islami",
+      "specs": "PVC potong CNC • 12mm • finishing Walnut & Ivory",
+      "color": "102, 74, 54",
+      "image": "/lampiran Foto/Edit/2D/file_00000000eef861f68d584816dbca0c64.png"
+    },
+    {
+      "id": 2,
+      "name": "Set Panel Dinding Akustik 3D",
+      "specs": "Sampel PVC + busa • display showroom",
+      "color": "206, 160, 80",
+      "image": "/lampiran Foto/Edit/file_00000000f6e461f7870e257f7a13c812.png"
+    },
+    {
+      "id": 3,
+      "name": "Panel Kisi Dekoratif Outdoor",
+      "specs": "PVC tahan cuaca • putih doff • modular",
+      "color": "240, 240, 240",
+      "image": "/lampiran Foto/Edit/WhatsApp Image 2025-08-05 at 15.43.45.jpeg"
+    },
+    {
+      "id": 4,
+      "name": "Lembaran Dinding PVC Motif Marmer Hitam",
+      "specs": "Finishing glossy • ukuran besar",
+      "color": "20, 20, 22",
+      "image": "/lampiran Foto/Edit/Laminating/DB7FF596-3BCD-4A74-96EE-8D89EA99EC47.png"
+    },
+    {
+      "id": 5,
+      "name": "Panel Dinding Feature Art Deco",
+      "specs": "PVC ukir CNC • putih doff",
+      "color": "235, 233, 226",
+      "image": "/lampiran Foto/Edit/3D/file_00000000921c61f5bdb3334751f44e4d.png"
+    },
+    {
+      "id": 6,
+      "name": "Panel Pola Backlit",
+      "specs": "Laser-cut + tekstur 3D • backlight hangat",
+      "color": "230, 205, 150",
+      "image": "/lampiran Foto/Edit/3D/file_00000000424061f88b22903e54ceeb91 (1).png"
+    },
+    {
+      "id": 7,
+      "name": "Kabinet Wastafel Kamar Mandi (PVC Board)",
+      "specs": "Tahan air • papan 16mm • wastafel menyatu",
+      "color": "245, 245, 245",
+      "image": "/1.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Meja Resepsionis Lengkung (Solid Surface)",
+      "specs": "Top seamless • dinding berlapis PVC",
+      "color": "230, 224, 210",
+      "image": "/3.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Set Wastafel Kompak",
+      "specs": "Kabinet PVC + cermin • hemat ruang",
+      "color": "236, 230, 216",
+      "image": "/8.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Pintu Laminasi dengan Nomor Kamar",
+      "specs": "Skin PVC • inti peredam suara • standar hotel",
+      "color": "168, 121, 78",
+      "image": "/7.jpg"
+    }
+  ],
+  "company": {
+    "about": {
+      "title": "Tentang BTC Board",
+      "description": "BTC Board merupakan produk PVC Board yang diproduksi oleh CV. Bagong Teknindo Cemerlang sejak tahun 2018. Menggunakan material pilihan yang berkualitas tinggi untuk memberikan produk terbaik bagi customer kami. Selain menggunakan material pilihan, BTC Board pun diproses dengan mesin yang canggih dan dapat dibentuk sesuai dengan keinginan customer.",
+      "established": "Didirikan 2018"
+    },
+    "vision": {
+      "title": "Visi Kami",
+      "content": "Menjadi Solusi bagi Kontraktor dan Arsitek dalam hal menyediakan material PVC Board yang berkualitas."
+    },
+    "mission": {
+      "title": "Misi Kami",
+      "breakthrough": "Breakthrough: Selalu berinovasi dalam menghadirkan produk PVC Board yang berkualitas dan dapat menjadi Solusi dalam hal desain dan pembangunan",
+      "teamwork": "Teamwork: Mempererat hubungan antar karyawan dengan cara saling menghargai dan menciptakan suasana kerja yang aman",
+      "excellence": "Customer Excellence: Selalu memberikan yang terbaik untuk pelanggan dalam hal produk dan pelayanan",
+      "selling": "Best Selling: Menjadi brand no 1 dan mendominasi pasar PVC Board dengan memberikan produk yang berkualitas dengan harga yang kompetitif",
+      "outstanding": "Outstanding: Selalu menjaga performa kerja yang baik dalam inovasi produk, kualitas dan efisiensi kerja",
+      "accountability": "Accountability: Menjadi brand yang dapat dipercaya dan diandalkan oleh masyarakat",
+      "responsible": "Responsible: Bertanggung jawab dan peduli terhadap kesejahteraan Masyarakat dan lingkungan",
+      "development": "Development: Selalu mengembangkan inovasi produk yang relevan dengan kebutuhan pelanggan"
+    }
+  },
+  "features": {
+    "title": "Keunggulan Produk",
+    "waterproof": {
+      "title": "Tahan Air",
+      "description": "BTC Board merupakan produk tahan air yang tidak akan rusak jika terkena air. BTC Board dapat digunakan sebagai pengganti bahan bangunan lain yang tidak tahan air, seperti triplek, multiplek, gypsum, dan masih banyak lagi."
+    },
+    "termiteProof": {
+      "title": "Anti Rayap",
+      "description": "BTC Board merupakan produk anti rayap, dan dapat digunakan sebagai pengganti bahan bangunan seperti triplek, multiplek, gypsum, dan masih banyak lagi."
+    },
+    "recyclable": {
+      "title": "Daur Ulang",
+      "description": "BTC Board terbuat dari campuran plastik yang memungkinkan untuk diolah dan digunakan kembali, sehingga dapat dikatakan bahwa proses pembuatan BTC Board ini zero waste (tanpa limbah)."
+    },
+    "smooth": {
+      "title": "Permukaan Halus",
+      "description": "BTC Board memiliki permukaan yang halus sehingga mempermudah proses pengerjaan. Dengan memiliki permukaan yang halus, BTC Board mudah untuk diukir dan dilaminasi."
+    },
+    "easyCarving": {
+      "title": "Mudah Diukir",
+      "description": "BTC Board mudah diukir dengan berbagai mesin ukir, salah satunya adalah mesin CNC. Mesin CNC yang dimiliki oleh kami memiliki akurasi yang bagus dan dapat memotong BTC Board sesuai dengan keinginan customer."
+    },
+    "easyWork": {
+      "title": "Mudah Pengerjaan",
+      "description": "BTC Board dapat diproses menggunakan alat pertukangan pada umumnya, jadi customer tidak perlu bingung dalam mencari alat yang cocok untuk memproses BTC Board."
+    },
+    "durable": {
+      "title": "Tahan Lama",
+      "description": "BTC Board memiliki daya tahan yang kuat sehingga dapat digunakan berulang kali. Oleh karena itu BTC Board dapat digunakan sebagai Begesting, Furniture, dan masih banyak lagi."
+    }
+  },
+  "applications": {
+    "title": "Kegunaan Produk",
+    "furniture": "Dapat digunakan untuk Furniture seperti lemari, meja, kursi, kitchenset, rubical toilet, dan masih banyak lagi",
+    "partition": "Dapat digunakan sebagai dinding partisi, pelapis dinding atau plafon",
+    "signage": "Dapat digunakan sebagai signage dan display seperti membuat papan nama, papan iklan dan display promosi",
+    "decorative": "Dapat digunakan untuk membuat panel dekoratif, elemen desain interior dan eksterior", 
+    "divider": "Dapat digunakan sebagai penyekat ruangan yang fleksibel dan elegan"
+  },
+  "products": {
+    "sectionLabel": "Produk Kami",
+    "title": "Jelajahi Produk Kami",
+    "titleHighlight": "Premium PVC Boards",
+    "description": "Temukan berbagai papan PVC berkualitas tinggi yang dirancang untuk daya tahan, fleksibilitas, dan hasil akhir yang bersih—ideal untuk proyek konstruksi dan interior modern.",
+    "featuresLabel": "Fitur",
+    "applicationsLabel": "Aplikasi",
+    "viewDetails": "Lihat Detail",
+    "getQuote": "Minta Penawaran",
+    "exampleLabel": "Contoh",
+
+    "cta": {
+      "title": "Butuh Spesifikasi atau Harga?",
+      "description": "Ceritakan tentang proyek Anda dan kami akan merekomendasikan papan, ketebalan, dan finishing yang tepat—kemudian kirimkan penawaran terperinci.",
+      "schedule": "Jadwalkan Konsultasi",
+      "catalog": "Unduh Katalog"
+    },
+
+    "modal": {
+      "title": "Jadwalkan Konsultasi",
+      "close": "Tutup",
+      "immediateHelp": "Butuh bantuan segera?",
+      "callExperts": "Bicaralah langsung dengan spesialis produk kami.",
+      "callNow": "Hubungi Sekarang",
+      "scheduleOnline": "Jadwalkan Secara Online",
+      "selectDate": "Pilih tanggal",
+      "selectTime": "Pilih waktu",
+      "confirm": "Konfirmasi Pemesanan"
+    },
+    "categories": {
+    "2d": {
+      "name": "Papan PVC 2D",
+      "tagline": "Papan datar serbaguna untuk berbagai keperluan",
+      "description": "Papan PVC permukaan datar yang cocok untuk furnitur, pelapis dinding, plafon, papan nama, dan lainnya. Tersedia dalam berbagai warna dan ukuran.",
+      "specs": "Permukaan halus • Pilihan ketebalan beragam",
+      "features": [
+        "Tahan Air",
+        "Tahan Rayap",
+        "Dapat Didaur Ulang"
+      ],
+      "applications": [
+        "Furnitur",
+        "Dinding Partisi",
+        "Papan Nama"
+      ]
+    },
+    "3d": {
+      "name": "Papan PVC 3D",
+      "tagline": "Tekstur elegan untuk interior modern",
+      "description": "Permukaan tiga dimensi untuk panel dekoratif, aksen dinding, plafon, dan pembatas ruangan.",
+      "specs": "Ramah CNC/laser • Detail halus",
+      "features": [
+        "Permukaan Halus",
+        "Mudah Diukir",
+        "Mudah Diproses"
+      ],
+      "applications": [
+        "Panel Dekoratif",
+        "Elemen Desain Interior",
+        "Pembatas Ruangan"
+      ]
+    },
+    "laminating": {
+      "name": "Papan PVC Laminasi",
+      "tagline": "Finishing laminasi premium untuk area dengan pemakaian tinggi",
+      "description": "Papan PVC dengan permukaan laminasi tahan lama untuk furnitur, partisi, dan papan nama yang membutuhkan finishing premium.",
+      "specs": "High-gloss atau matte • Tahan gores",
+      "features": [
+        "Tahan Lama",
+        "Tahan Air",
+        "Tahan Rayap"
+      ],
+      "applications": [
+        "Furnitur",
+        "Dinding Partisi",
+        "Papan Nama"
+      ]
+    },
+    "polos": {
+      "name": "Papan PVC Polos",
+      "tagline": "Papan polos untuk finishing kustom",
+      "description": "Papan PVC permukaan polos yang ideal untuk cat, laminasi, atau treatment kustom.",
+      "specs": "Densitas seragam • Siap cat/laminasi",
+      "features": [
+        "Permukaan Halus",
+        "Mudah Diproses",
+        "Dapat Didaur Ulang"
+      ],
+      "applications": [
+        "Furnitur",
+        "Dinding Partisi",
+        "Papan Nama"
+      ]
+    }
+  }
+},
+"innovation": {
+  "title": "Keunggulan Produk",
+  "subtitle": "BTC Board hadir dengan berbagai keunggulan yang menjadikannya pilihan terbaik untuk kebutuhan bahan bangunan modern Anda.",
+  "features": {
+    "title1": "Tahan Air",
+    "description1": "BTC Board merupakan produk tahan air yang tidak akan rusak jika terkena air. BTC Board dapat digunakan sebagai pengganti bahan bangunan lain yang tidak tahan air, seperti triplek, multiplek, gypsum, dan masih banyak lagi.",
+    "title2": "Anti Rayap",
+    "description2": "BTC Board merupakan produk anti rayap, dan dapat digunakan sebagai pengganti bahan bangunan seperti triplek, multiplek, gypsum, dan masih banyak lagi.",
+    "title3": "Daur Ulang",
+    "description3": "BTC Board terbuat dari campuran plastik yang memungkinkan untuk diolah dan digunakan kembali, sehingga dapat dikatakan bahwa proses pembuatan BTC Board ini zero waste (tanpa limbah).",
+    "title4": "Permukaan Halus",
+    "description4": "BTC Board memiliki permukaan yang halus sehingga mempermudah proses pengerjaan. Dengan memiliki permukaan yang halus, BTC Board mudah untuk diukir dan dilaminasi.",
+    "title5": "Mudah Pengerjaan",
+    "description5": "BTC Board dapat diproses menggunakan alat pertukangan pada umumnya, jadi customer tidak perlu bingung dalam mencari alat yang cocok untuk memproses BTC Board.",
+    "title7": "Tahan Lama",
+    "description7": "BTC Board memiliki daya tahan yang kuat sehingga dapat digunakan berulang kali. Oleh karena itu BTC Board dapat digunakan sebagai Begesting, Furniture, dan masih banyak lagi."
+  }
+},
+"footer": {
+    "brand": {
+      "title": "BTC BOARD",
+      "company": "Bagong Teknindo Cemerlang"
+    },
+    "description": "BTC Board adalah produk papan PVC premium yang diproduksi oleh CV. Bagong Teknindo Cemerlang sejak 2018. Kami menggunakan bahan berkualitas pilihan dan mesin berteknologi modern untuk menghadirkan produk terbaik, serta dapat dibentuk sesuai kebutuhan pelanggan.",
+    "columns": {
+      "solutions": "Solusi Kami",
+      "resources": "Sumber Daya",
+      "contact": "Hubungi Kami"
+    },
+    "solutionLinks": [
+      "Proyek Komersial",
+      "Aplikasi Industri",
+      "Penggunaan Residensial",
+      "Solusi Kustom"
+    ],
+    "resourceLinks": [
+      "Spesifikasi Produk",
+      "Panduan Instalasi",
+      "Sertifikat Kualitas",
+      "Dukungan Teknis"
+    ],
+    "contact": {
+      "phoneLabel": "Telepon",
+      "emailLabel": "Email",
+      "addressLabel": "Alamat",
+      "phoneValue": "+62 812 3456 7890",
+      "emailValue": "info@btc.co.id",
+      "addressLine1": "Jl. Industri No. 123",
+      "addressLine2": "Surabaya, Jawa Timur",
+      "addressLine3": "Indonesia 60111"
+    },
+    "legal": {
+      "copyright": "© {year} Bagong Teknindo Cemerlang. Hak cipta dilindungi undang-undang.",
+      "privacy": "Kebijakan Privasi",
+      "terms": "Syarat Layanan",
+      "quality": "Standar Kualitas"
+    },
+    "social": {
+      "instagram": "Instagram",
+      "x": "X"
+    }
+  },
+"common": {
+  "reset": "Atur Ulang"
+}
+}

@@ -1,261 +1,565 @@
 'use client';
-import React, { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { Check, ArrowRight, Home, Building, Briefcase, Droplets, Calendar, X, Phone } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
+import {
+  Check, ArrowRight, Calendar, X, Phone,
+  Grid3x3, Layers, Paintbrush, Square, Award, Eye, ChevronRight
+} from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 export const ProductsSection = () => {
+  const t = useTranslations('products');
+  const tCommon = useTranslations('common');
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState(0);
+  const [hoveredImage, setHoveredImage] = useState(null);
 
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start']
+  });
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+
+  // --- Helpers for scheduling ---
   const getAvailableDates = () => {
     const dates = [];
     const today = new Date();
-    let currentDate = new Date(today);
-    currentDate.setDate(currentDate.getDate() + 1); // Start from tomorrow
-    
+    let current = new Date(today);
+    current.setDate(current.getDate() + 1);
+
     while (dates.length < 10) {
-      const dayOfWeek = currentDate.getDay();
-      if (dayOfWeek !== 0 && dayOfWeek !== 6) { // Exclude weekends
-        dates.push(new Date(currentDate));
-      }
-      currentDate.setDate(currentDate.getDate() + 1);
+      const dow = current.getDay();
+      if (dow !== 0 && dow !== 6) dates.push(new Date(current)); // weekdays only
+      current.setDate(current.getDate() + 1);
     }
     return dates;
   };
 
-  const availableTimes = [
-    '09:00', '10:00', '11:00', '14:00', '15:00', '16:00'
-  ];
+  const availableTimes = ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'];
 
-  const formatDate = (date) => {
-    return date.toLocaleDateString('en-US', { 
-      weekday: 'short', 
-      month: 'short', 
-      day: 'numeric' 
-    });
-  };
+  const formatDate = (date) =>
+    date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
 
   const handleScheduleSubmit = () => {
-    if (selectedDate && selectedTime) {
-      // Here you would typically send the data to your backend
-      alert(`Consultation scheduled for ${selectedDate} at ${selectedTime}`);
-      setIsModalOpen(false);
-      setSelectedDate('');
-      setSelectedTime('');
-    }
+    if (!selectedDate || !selectedTime) return;
+    alert(`Consultation scheduled for ${selectedDate} at ${selectedTime}`);
+    setIsModalOpen(false);
+    setSelectedDate('');
+    setSelectedTime('');
   };
 
-  const products = [
+  // ---- DATA with professional color schemes ----
+  const pvcSolutions = [
     {
-      name: "Bathroom & Kitchen Applications",
-      tagline: "Water-Resistant PVC Solutions",
-      specs: "3-25mm thickness • 100% Waterproof • Easy to Clean",
-      image: "/1.jpg", // Replace with your bathroom vanity image
-      realImage: "Image 1", // This represents your bathroom vanity image
-      features: ["Moisture resistant core", "Smooth hygienic surface", "Easy fabrication & installation"],
-      applications: ["Bathroom vanities", "Kitchen cabinets", "Wet area paneling"],
-      icon: <Droplets className="w-6 h-6" />,
-      bgColor: "from-blue-50 to-cyan-50",
-      accentColor: "blue"
+      id: '2d',
+      name: t('categories.2d.name'),
+      tagline: t('categories.2d.tagline'),
+      description: t('categories.2d.description'),
+      specs: t('categories.2d.specs'),
+      features: [
+        t('categories.2d.features.0'),
+        t('categories.2d.features.1'),
+        t('categories.2d.features.2')
+      ],
+      applications: [
+        t('categories.2d.applications.0'),
+        t('categories.2d.applications.1'),
+        t('categories.2d.applications.2')
+      ],
+      images: [
+        '/lampiran Foto/Edit/2D/CNC 2D.jpg',
+        '/lampiran Foto/Edit/2D/file_00000000eef861f68d584816dbca0c64.png',
+        '/lampiran Foto/Edit/2D/file_00000000ee7c61fb92adf3eff0ba2a68.png'
+      ],
+      icon: <Grid3x3 className="w-5 h-5 lg:w-6 lg:h-6" />,
+      bgGradient: 'from-slate-50/80 via-blue-50/40 to-indigo-50/60',
+      accentColor: 'slate',
+      primaryColor: '#334155', // slate-700
+      secondaryColor: '#64748b', // slate-500
+      glowColor: 'rgba(51, 65, 85, 0.15)'
     },
     {
-      name: "Office & Commercial Interiors",
-      tagline: "Professional Grade Interior Solutions",
-      specs: "Multiple finishes • 2-20mm • Fire Retardant",
-      image: "/3.jpg", // Replace with your office space image
-      realImage: "Image 2", // This represents your office interior image
-      features: ["Seamless panel joints", "Durable finish coating", "Sound dampening properties"],
-      applications: ["Office partitions", "Wall cladding", "Reception desks"],
-      icon: <Briefcase className="w-6 h-6" />,
-      bgColor: "from-slate-50 to-gray-50",
-      accentColor: "blue"
+      id: '3d',
+      name: t('categories.3d.name'),
+      tagline: t('categories.3d.tagline'),
+      description: t('categories.3d.description'),
+      specs: t('categories.3d.specs'),
+      features: [
+        t('categories.3d.features.0'),
+        t('categories.3d.features.1'),
+        t('categories.3d.features.2')
+      ],
+      applications: [
+        t('categories.3d.applications.0'),
+        t('categories.3d.applications.1'),
+        t('categories.3d.applications.2')
+      ],
+      images: [
+        '/lampiran Foto/Edit/3D/CNC 3D.jpg',
+        '/lampiran Foto/Edit/3D/file_00000000424061f88b22903e54ceeb91 (1).png',
+        '/lampiran Foto/Edit/3D/file_000000009e4861f98708e932c778ea3a.png'
+      ],
+      icon: <Layers className="w-5 h-5 lg:w-6 lg:h-6" />,
+      bgGradient: 'from-gray-50/80 via-emerald-50/40 to-teal-50/60',
+      accentColor: 'emerald',
+      primaryColor: '#059669', // emerald-600
+      secondaryColor: '#10b981', // emerald-500
+      glowColor: 'rgba(5, 150, 105, 0.15)'
     },
     {
-      name: "Architectural & Decorative",
-      tagline: "Premium Finishing Solutions",
-      specs: "Wood grain textures • 5-50mm • UV Stable",
-      image: "/7.jpg", // Replace with your door/architectural image
-      realImage: "Image 3 & 4", // This represents your door and architectural images
-      features: ["Natural wood appearance", "Dimensional stability", "Custom pattern options"],
-      applications: ["Door panels", "Wall features", "Architectural accents"],
-      icon: <Home className="w-6 h-6" />,
-      bgColor: "from-amber-50 to-orange-50",
-      accentColor: "blue"
+      id: 'laminating',
+      name: t('categories.laminating.name'),
+      tagline: t('categories.laminating.tagline'),
+      description: t('categories.laminating.description'),
+      specs: t('categories.laminating.specs'),
+      features: [
+        t('categories.laminating.features.0'),
+        t('categories.laminating.features.1'),
+        t('categories.laminating.features.2')
+      ],
+      applications: [
+        t('categories.laminating.applications.0'),
+        t('categories.laminating.applications.1'),
+        t('categories.laminating.applications.2')
+      ],
+      images: [
+        '/lampiran Foto/Edit/Laminating/IMG_20231002_104209.jpg',
+        '/lampiran Foto/Edit/Laminating/file_000000005a3061f7a309f284297a968d.png',
+        '/lampiran Foto/Edit/Laminating/DB7FF596-3BCD-4A74-96EE-8D89EA99EC47.png'
+      ],
+      icon: <Paintbrush className="w-5 h-5 lg:w-6 lg:h-6" />,
+      bgGradient: 'from-amber-50/80 via-orange-50/40 to-yellow-50/60',
+      accentColor: 'amber',
+      primaryColor: '#d97706', // amber-600
+      secondaryColor: '#f59e0b', // amber-500
+      glowColor: 'rgba(217, 119, 6, 0.15)'
+    },
+    {
+      id: 'polos',
+      name: t('categories.polos.name'),
+      tagline: t('categories.polos.tagline'),
+      description: t('categories.polos.description'),
+      specs: t('categories.polos.specs'),
+      features: [
+        t('categories.polos.features.0'),
+        t('categories.polos.features.1'),
+        t('categories.polos.features.2')
+      ],
+      applications: [
+        t('categories.polos.applications.0'),
+        t('categories.polos.applications.1'),
+        t('categories.polos.applications.2')
+      ],
+      images: [
+        '/lampiran Foto/Edit/Polos/file_0000000016e061f68fd233de68b39ad5.png',
+        '/lampiran Foto/Edit/Polos/file_0000000009e062469df01559f01cb644.png',
+        '/lampiran Foto/Edit/Polos/IMG-20250805-WA0019.jpg'
+      ],
+      icon: <Square className="w-5 h-5 lg:w-6 lg:h-6" />,
+      bgGradient: 'from-indigo-50/80 via-purple-50/40 to-violet-50/60',
+      accentColor: 'indigo',
+      primaryColor: '#4f46e5', // indigo-600
+      secondaryColor: '#6366f1', // indigo-500
+      glowColor: 'rgba(79, 70, 229, 0.15)'
     }
   ];
 
+  const currentSolution = pvcSolutions[selectedCategory];
+
   return (
-    <section id="products" className="py-16 sm:py-20 bg-gradient-to-b from-white to-slate-50/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          className="text-center mb-12 sm:mb-16"
-          initial={{ opacity: 0, y: 20 }}
+    <section ref={sectionRef} id="products" className="relative min-h-screen py-16 lg:py-24 overflow-hidden bg-white">
+      {/* Professional Background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-slate-50"></div>
+        <motion.div style={{ y: backgroundY }} className="absolute inset-0 opacity-20">
+          <div className="absolute top-1/4 left-1/4 w-64 lg:w-96 h-64 lg:h-96 bg-gradient-to-r from-slate-200/30 to-gray-200/30 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/3 right-1/4 w-48 lg:w-80 h-48 lg:h-80 bg-gradient-to-r from-indigo-200/20 to-slate-200/20 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 right-1/3 w-40 lg:w-64 h-40 lg:h-64 bg-gradient-to-r from-emerald-200/20 to-gray-200/20 rounded-full blur-3xl" />
+        </motion.div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Professional Header */}
+        <motion.div
+          className="text-center mb-12 lg:mb-20"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-200 rounded-full mb-6"
-            initial={{ opacity: 0, scale: 0.8 }}
+            className="inline-flex items-center gap-2 lg:gap-3 px-4 lg:px-6 py-2 lg:py-3 mb-6 lg:mb-8 bg-white/80 backdrop-blur-md border border-slate-200/60 rounded-xl lg:rounded-2xl shadow-sm"
+            initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
           >
-            <Building className="w-4 h-4 text-blue-600" />
-            <span className="text-sm font-semibold text-blue-700">Real-World Applications</span>
+            <Award className="w-4 h-4 lg:w-5 lg:h-5 text-slate-600" />
+            <span className="text-xs lg:text-sm font-semibold text-slate-700">
+              {t('sectionLabel')}
+            </span>
           </motion.div>
-          
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-slate-800">
-            See Our PVC Solutions 
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> In Action</span>
-          </h2>
-          <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            From luxury bathrooms to professional offices, discover how our premium PVC materials transform spaces with durability, style, and precision engineering.
-          </p>
+
+          <motion.h2
+            className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-bold mb-4 lg:mb-6 leading-tight text-slate-900"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
+            <span>{t('title')}</span>
+            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-700 via-indigo-600 to-emerald-600">
+              {t('titleHighlight')}
+            </span>
+          </motion.h2>
+
+          <motion.p
+            className="text-base lg:text-xl text-slate-600 max-w-3xl lg:max-w-4xl mx-auto leading-relaxed px-4 lg:px-0"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+          >
+            {t('description')}
+          </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
-          {products.map((product, index) => (
-            <motion.div
-              key={index}
-              className={`bg-gradient-to-br ${product.bgColor} rounded-2xl sm:rounded-3xl overflow-hidden border border-white/60 shadow-lg hover:shadow-xl group`}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.15, duration: 0.6 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8, scale: 1.02 }}
-            >
-              {/* Image Section */}
-              <div className="relative h-48 sm:h-56 lg:h-64 overflow-hidden">
-                <motion.div
-                  className="w-full h-full bg-slate-200 flex items-center justify-center"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {/* Placeholder for actual images */}
-                  <div className="text-center p-6">
-                    <div className={`w-16 h-16 mx-auto mb-3 rounded-2xl bg-${product.accentColor}-100 flex items-center justify-center`}>
-                      {product.icon}
-                    </div>
-                    <p className="text-sm text-slate-600 font-medium">{product.realImage}</p>
-                    <Image 
-                      src={product.image} 
-                      alt={product.name} 
-                      layout="fill" 
-                      objectFit="cover" 
-                      className="rounded-2xl group-hover:scale-105 transition-transform duration-300"
-                      placeholder="blur"
-                      blurDataURL={product.image} // Use a low-quality image placeholder
-                      quality={80}
-                    />
-                  </div>
-                </motion.div>
-                
-                {/* Quality badge */}
-                <div className={`absolute top-4 right-4 bg-${product.accentColor}-600 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-lg`}>
-                  Premium Grade
-                </div>
-                
-                {/* Application count badge */}
-                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1.5">
-                  <span className="text-xs font-semibold text-slate-700">{product.applications.length}+ Applications</span>
-                </div>
-              </div>
-              
-              {/* Content Section */}
-              <div className="p-5 sm:p-6">
-                <div className="mb-4">
-                  <h3 className={`text-lg sm:text-xl font-bold mb-2 text-slate-800 group-hover:text-${product.accentColor}-600 transition-colors`}>
-                    {product.name}
-                  </h3>
-                  <p className="text-slate-600 mb-2 text-sm font-medium">{product.tagline}</p>
-                  <p className="text-xs text-slate-500 font-medium bg-white/50 rounded-lg px-3 py-1.5 inline-block">
-                    {product.specs}
-                  </p>
-                </div>
-                
-                {/* Key Features */}
-                <div className="space-y-2 mb-4">
-                  <h4 className="text-sm font-bold text-slate-700 mb-2">Key Features:</h4>
-                  {product.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-sm text-slate-700">
-                      <Check className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                      <span>{feature}</span>
-                    </div>
-                  ))}
-                </div>
-                
-                {/* Applications */}
-                <div className="mb-6">
-                  <h4 className="text-sm font-bold text-slate-700 mb-2">Perfect For:</h4>
-                  <div className="flex flex-wrap gap-1.5">
-                    {product.applications.map((app, idx) => (
-                      <span 
-                        key={idx} 
-                        className={`text-xs px-2.5 py-1 bg-${product.accentColor}-100 text-${product.accentColor}-700 rounded-full font-medium`}
-                      >
-                        {app}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-2">
-                  <motion.button 
-                    className={`flex-1 bg-${product.accentColor}-600 hover:bg-${product.accentColor}-700 text-white py-2.5 px-4 rounded-xl font-semibold flex items-center justify-center gap-2 group text-sm`}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    View Details <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </motion.button>
-                  <motion.button 
-                    className="flex-1 border-2 border-slate-300 hover:border-slate-400 text-slate-700 hover:text-slate-900 py-2.5 px-4 rounded-xl font-semibold bg-white hover:bg-slate-50 text-sm"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    Get Quote
-                  </motion.button>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Call to Action Section */}
-        <motion.div 
-          className="text-center mt-12 sm:mt-16"
+        {/* Professional Category Selector */}
+        <motion.div
+          className="flex flex-wrap justify-center gap-3 lg:gap-4 mb-12 lg:mb-16 px-2"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
+          transition={{ delay: 0.5 }}
         >
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-white">
-            <h3 className="text-xl sm:text-2xl font-bold mb-3">Ready to Transform Your Space?</h3>
-            <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Contact our experts to discuss your specific requirements and get a customized solution for your project.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center mx-auto">
-              <motion.button 
-                className="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-xl font-semibold flex items-center justify-center gap-2"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => setIsModalOpen(true)}
+          {pvcSolutions.map((solution, index) => (
+            <motion.button
+              key={solution.id}
+              onClick={() => setSelectedCategory(index)}
+              className={`group relative flex items-center gap-2 lg:gap-3 px-3 lg:px-6 py-3 lg:py-4 rounded-xl lg:rounded-2xl font-semibold text-sm lg:text-base transition-all duration-300 ${
+                selectedCategory === index
+                  ? 'bg-white/95 backdrop-blur-md shadow-lg scale-105 border border-slate-200'
+                  : 'bg-white/60 backdrop-blur-sm hover:bg-white/80 hover:scale-102 border border-slate-100'
+              }`}
+              whileHover={{ y: -1 }}
+              whileTap={{ scale: 0.98 }}
+              style={{
+                boxShadow: selectedCategory === index ? `0 10px 30px -8px ${solution.glowColor}` : 'none'
+              }}
+            >
+              <div
+                className={`relative p-2 lg:p-2.5 rounded-lg lg:rounded-xl transition-colors ${
+                  selectedCategory === index
+                    ? 'text-white'
+                    : 'text-slate-500'
+                }`}
+                style={{
+                  backgroundColor: selectedCategory === index ? solution.primaryColor : 'transparent',
+                  border: selectedCategory === index ? 'none' : `1px solid ${solution.secondaryColor}30`
+                }}
               >
-                <Calendar className="w-4 h-4" />
-                Schedule Consultation
-              </motion.button>
-              <motion.button 
-                className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-6 py-3 rounded-xl font-semibold"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                {solution.icon}
+                {selectedCategory === index && (
+                  <motion.div
+                    className="absolute inset-0 bg-white/10 rounded-lg lg:rounded-xl"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                )}
+              </div>
+              <span className={`${selectedCategory === index ? 'text-slate-900' : 'text-slate-600'} hidden sm:block`}>
+                {solution.name}
+              </span>
+            </motion.button>
+          ))}
+        </motion.div>
+
+        {/* Selected category content */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={selectedCategory}
+            initial={{ opacity: 0, y: 30, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -30, scale: 0.98 }}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            className="relative"
+          >
+            <div
+              className={`relative bg-gradient-to-br ${currentSolution.bgGradient} backdrop-blur-md rounded-2xl lg:rounded-3xl border border-white/30 shadow-lg lg:shadow-xl overflow-hidden`}
+            >
+              <div
+                className="absolute inset-0 opacity-20 blur-3xl"
+                style={{
+                  background: `radial-gradient(circle at 30% 40%, ${currentSolution.glowColor} 0%, transparent 60%)`
+                }}
+              />
+              
+              {/* Mobile-first responsive grid */}
+              <div className="relative grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8 p-6 lg:p-12">
+                {/* Content column - full width on mobile */}
+                <div className="lg:col-span-2 space-y-6 lg:space-y-8 order-2 lg:order-1">
+                  <motion.div 
+                    initial={{ opacity: 0, x: -20 }} 
+                    animate={{ opacity: 1, x: 0 }} 
+                    transition={{ delay: 0.2 }}
+                  >
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-3 lg:gap-4 mb-4 lg:mb-6">
+                      <div 
+                        className="p-2.5 lg:p-3 rounded-xl lg:rounded-2xl text-white shadow-md self-start"
+                        style={{ backgroundColor: currentSolution.primaryColor }}
+                      >
+                        {currentSolution.icon}
+                      </div>
+                      <div className="px-3 lg:px-4 py-1.5 lg:py-2 bg-white/70 backdrop-blur-sm rounded-lg lg:rounded-full">
+                        <span className="text-xs lg:text-sm font-semibold text-slate-700">
+                          {currentSolution.specs}
+                        </span>
+                      </div>
+                    </div>
+
+                    <h3 className="text-2xl lg:text-4xl font-bold text-slate-900 mb-2 lg:mb-3">
+                      {currentSolution.name}
+                    </h3>
+                    <p className="text-lg lg:text-xl text-slate-700 font-medium mb-3 lg:mb-4">
+                      {currentSolution.tagline}
+                    </p>
+                    <p className="text-base lg:text-lg text-slate-600 leading-relaxed">
+                      {currentSolution.description}
+                    </p>
+                  </motion.div>
+
+                  {/* Features */}
+                  <motion.div 
+                    initial={{ opacity: 0, x: -20 }} 
+                    animate={{ opacity: 1, x: 0 }} 
+                    transition={{ delay: 0.3 }} 
+                    className="space-y-3 lg:space-y-4"
+                  >
+                    <h4 className="text-lg lg:text-xl font-bold text-slate-900 flex items-center gap-2">
+                      <div 
+                        className="p-1.5 rounded-lg"
+                        style={{ backgroundColor: `${currentSolution.primaryColor}20` }}
+                      >
+                        <Check className="w-4 h-4 lg:w-5 lg:h-5" style={{ color: currentSolution.primaryColor }} />
+                      </div>
+                      {t('featuresLabel')}
+                    </h4>
+                    <div className="space-y-2 lg:space-y-3">
+                      {currentSolution.features.map((feature, idx) => (
+                        <motion.div
+                          key={idx}
+                          initial={{ opacity: 0, x: -15 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.4 + idx * 0.1 }}
+                          className="flex items-start gap-3 p-3 lg:p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/40"
+                        >
+                          <div 
+                            className="w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-full mt-2 flex-shrink-0"
+                            style={{ backgroundColor: currentSolution.primaryColor }}
+                          />
+                          <span className="text-sm lg:text-base text-slate-700 font-medium leading-relaxed">{feature}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+
+                  {/* Applications */}
+                  <motion.div 
+                    initial={{ opacity: 0, x: -20 }} 
+                    animate={{ opacity: 1, x: 0 }} 
+                    transition={{ delay: 0.5 }}
+                  >
+                    <h4 className="text-lg lg:text-xl font-bold text-slate-900 mb-3 lg:mb-4">{t('applicationsLabel')}</h4>
+                    <div className="flex flex-wrap gap-2 lg:gap-3">
+                      {currentSolution.applications.map((app, idx) => (
+                        <motion.span
+                          key={idx}
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: 0.6 + idx * 0.1 }}
+                          className="px-3 lg:px-4 py-2 backdrop-blur-sm rounded-lg lg:rounded-xl font-medium text-xs lg:text-sm border"
+                          style={{
+                            backgroundColor: `${currentSolution.primaryColor}15`,
+                            color: currentSolution.primaryColor,
+                            borderColor: `${currentSolution.primaryColor}30`
+                          }}
+                        >
+                          {app}
+                        </motion.span>
+                      ))}
+                    </div>
+                  </motion.div>
+
+                  {/* Action Buttons */}
+                  <motion.div 
+                    initial={{ opacity: 0, x: -20 }} 
+                    animate={{ opacity: 1, x: 0 }} 
+                    transition={{ delay: 0.7 }} 
+                    className="flex flex-col sm:flex-row gap-3 lg:gap-4"
+                  >
+                    <motion.button
+                      className="group flex-1 text-white py-3 lg:py-4 px-6 lg:px-8 rounded-xl lg:rounded-2xl font-semibold shadow-md transition-all duration-300 flex items-center justify-center gap-2"
+                      style={{ backgroundColor: currentSolution.primaryColor }}
+                      whileHover={{ scale: 1.02, y: -1 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Eye className="w-4 h-4 lg:w-5 lg:h-5" />
+                      <span className="text-sm lg:text-base">{t('viewDetails')}</span>
+                      <ChevronRight className="w-4 h-4 lg:w-5 lg:h-5 group-hover:translate-x-1 transition-transform" />
+                    </motion.button>
+
+                    <motion.button
+                      className="flex-1 bg-white/80 backdrop-blur-sm hover:bg-white/95 text-slate-800 py-3 lg:py-4 px-6 lg:px-8 rounded-xl lg:rounded-2xl font-semibold border border-slate-200 hover:border-slate-300 transition-all duration-300"
+                      whileHover={{ scale: 1.02, y: -1 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => setIsModalOpen(true)}
+                    >
+                      <span className="text-sm lg:text-base">{t('getQuote')}</span>
+                    </motion.button>
+                  </motion.div>
+                </div>
+
+                {/* Images column - responsive layout */}
+                <div className="lg:col-span-3 order-1 lg:order-2">
+                  <motion.div 
+                    initial={{ opacity: 0, x: 20 }} 
+                    animate={{ opacity: 1, x: 0 }} 
+                    transition={{ delay: 0.3 }} 
+                    className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4 h-full"
+                  >
+                    {/* Main image - full width on mobile, spans both columns on larger screens */}
+                    <motion.div
+                      className="sm:col-span-2 relative aspect-video rounded-xl lg:rounded-2xl overflow-hidden shadow-lg"
+                      onHoverStart={() => setHoveredImage(0)}
+                      onHoverEnd={() => setHoveredImage(null)}
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Image
+                        src={currentSolution.images[0]}
+                        alt={`${currentSolution.name} main example`}
+                        fill
+                        className="object-cover"
+                        quality={90}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                      <motion.div
+                        className="absolute bottom-3 lg:bottom-4 left-3 lg:left-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5 }}
+                      >
+                        <span className="text-xs lg:text-sm font-semibold text-slate-900">{t('exampleLabel')} 1</span>
+                      </motion.div>
+                    </motion.div>
+
+                    {/* Secondary images */}
+                    {currentSolution.images.slice(1, 3).map((image, idx) => (
+                      <motion.div
+                        key={idx}
+                        className="relative aspect-square rounded-xl lg:rounded-2xl overflow-hidden shadow-md"
+                        onHoverStart={() => setHoveredImage(idx + 1)}
+                        onHoverEnd={() => setHoveredImage(null)}
+                        whileHover={{ scale: 1.03 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Image 
+                          src={image} 
+                          alt={`${currentSolution.name} example ${idx + 2}`} 
+                          fill 
+                          className="object-cover" 
+                          quality={85} 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                        <motion.div
+                          className="absolute bottom-2 lg:bottom-3 left-2 lg:left-3 bg-white/80 backdrop-blur-sm rounded-md px-2 py-1"
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: 0.6 + idx * 0.1 }}
+                        >
+                          <span className="text-xs font-semibold text-slate-800">
+                            {t('exampleLabel')} {idx + 2}
+                          </span>
+                        </motion.div>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Professional CTA */}
+        <motion.div
+          className="text-center mt-12 lg:mt-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+        >
+          <div className="relative bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 rounded-2xl lg:rounded-3xl p-8 lg:p-12 text-white overflow-hidden">
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-1/4 left-1/4 w-24 lg:w-32 h-24 lg:h-32 bg-white rounded-full blur-2xl" />
+              <div className="absolute bottom-1/4 right-1/4 w-32 lg:w-40 h-32 lg:h-40 bg-white rounded-full blur-3xl" />
+            </div>
+
+            <div className="relative">
+              <motion.h3 
+                className="text-2xl lg:text-4xl font-bold mb-3 lg:mb-4" 
+                initial={{ opacity: 0, y: 20 }} 
+                whileInView={{ opacity: 1, y: 0 }} 
+                viewport={{ once: true }} 
+                transition={{ delay: 0.5 }}
               >
-                Download Catalog
-              </motion.button>
+                {t('cta.title')}
+              </motion.h3>
+              <motion.p 
+                className="text-base lg:text-xl text-slate-200 mb-6 lg:mb-8 max-w-2xl lg:max-w-3xl mx-auto px-4 lg:px-0" 
+                initial={{ opacity: 0, y: 20 }} 
+                whileInView={{ opacity: 1, y: 0 }} 
+                viewport={{ once: true }} 
+                transition={{ delay: 0.6 }}
+              >
+                {t('cta.description')}
+              </motion.p>
+              <motion.div 
+                className="flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center px-4 lg:px-0" 
+                initial={{ opacity: 0, y: 20 }} 
+                whileInView={{ opacity: 1, y: 0 }} 
+                viewport={{ once: true }} 
+                transition={{ delay: 0.7 }}
+              >
+                <motion.button 
+                  className="bg-white text-slate-800 hover:bg-slate-50 px-6 lg:px-8 py-3 lg:py-4 rounded-xl lg:rounded-2xl font-semibold flex items-center justify-center gap-2 lg:gap-3 shadow-md transition-colors" 
+                  whileHover={{ scale: 1.02, y: -1 }} 
+                  whileTap={{ scale: 0.98 }} 
+                  onClick={() => setIsModalOpen(true)}
+                >
+                  <Calendar className="w-4 h-4 lg:w-5 lg:h-5" />
+                  <span className="text-sm lg:text-base">{t('cta.schedule')}</span>
+                </motion.button>
+                <motion.button 
+                  className="border-2 border-white text-white hover:bg-white hover:text-slate-800 px-6 lg:px-8 py-3 lg:py-4 rounded-xl lg:rounded-2xl font-semibold backdrop-blur-sm transition-all duration-300" 
+                  whileHover={{ scale: 1.02, y: -1 }} 
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <span className="text-sm lg:text-base">{t('cta.catalog')}</span>
+                </motion.button>
+              </motion.div>
             </div>
           </div>
         </motion.div>
       </div>
+
+      {/* Professional Modal */}
       <AnimatePresence>
         {isModalOpen && (
           <motion.div
@@ -266,110 +570,127 @@ export const ProductsSection = () => {
             onClick={() => setIsModalOpen(false)}
           >
             <motion.div
-              className="bg-white rounded-2xl p-6 w-full max-w-md mx-auto"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+              className="bg-white/95 backdrop-blur-md rounded-2xl lg:rounded-3xl p-6 lg:p-8 w-full max-w-sm lg:max-w-md mx-auto shadow-2xl border border-white/20"
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
               onClick={(e) => e.stopPropagation()}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="schedule-title"
             >
               {/* Modal Header */}
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-bold text-slate-800">Schedule Consultation</h3>
-                <button
-                  onClick={() => setIsModalOpen(false)}
-                  className="p-1 hover:bg-slate-100 rounded-lg transition-colors"
+              <div className="flex items-center justify-between mb-6 lg:mb-8">
+                <h3 id="schedule-title" className="text-xl lg:text-2xl font-bold text-slate-900">
+                  {t('modal.title')}
+                </h3>
+                <button 
+                  onClick={() => setIsModalOpen(false)} 
+                  className="p-2 hover:bg-slate-100 rounded-xl transition-colors" 
+                  aria-label={t('modal.close')}
                 >
-                  <X className="w-5 h-5 text-slate-500" />
+                  <X className="w-5 h-5 lg:w-6 lg:h-6 text-slate-500" />
                 </button>
               </div>
 
-              {/* Quick Call Option */}
-              <div className="mb-6 p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200">
-                <h4 className="font-semibold text-green-800 mb-2 flex items-center gap-2">
-                  <Phone className="w-4 h-4" />
-                  Need Immediate Assistance?
+              {/* Quick Contact Section */}
+              <div className="mb-6 lg:mb-8 p-4 lg:p-6 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl lg:rounded-2xl border border-emerald-200/60">
+                <h4 className="font-bold text-emerald-800 mb-2 lg:mb-3 flex items-center gap-2">
+                  <Phone className="w-4 h-4 lg:w-5 lg:h-5" />
+                  <span className="text-sm lg:text-base">{t('modal.immediateHelp')}</span>
                 </h4>
-                <p className="text-sm text-green-700 mb-3">
-                  Call our experts now for instant consultation
+                <p className="text-xs lg:text-sm text-emerald-700 mb-3 lg:mb-4 leading-relaxed">
+                  {t('modal.callExperts')}
                 </p>
-                <a
-                  href="tel:+1234567890"
-                  className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors text-sm"
+                <a 
+                  href="tel:+1234567890" 
+                  className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 lg:px-6 py-2 lg:py-3 rounded-lg lg:rounded-xl font-semibold transition-colors text-sm lg:text-base"
                 >
                   <Phone className="w-4 h-4" />
-                  Call Now: (123) 456-7890
+                  {t('modal.callNow')}: (123) 456-7890
                 </a>
               </div>
 
-              {/* Online Scheduling */}
-              <div className="border-t border-slate-200 pt-6">
-                <h4 className="font-semibold text-slate-800 mb-4 flex items-center gap-2">
-                  <Calendar className="w-4 h-4" />
-                  Schedule Online Consultation
+              {/* Online Scheduling Section */}
+              <div className="border-t border-slate-200 pt-6 lg:pt-8">
+                <h4 className="font-bold text-slate-900 mb-4 lg:mb-6 flex items-center gap-2">
+                  <Calendar className="w-4 h-4 lg:w-5 lg:h-5" />
+                  <span className="text-sm lg:text-base">{t('modal.scheduleOnline')}</span>
                 </h4>
 
                 {/* Date Selection */}
-                <div className="mb-4">
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Select Date
+                <div className="mb-4 lg:mb-6">
+                  <label className="block text-xs lg:text-sm font-semibold text-slate-700 mb-2 lg:mb-3">
+                    {t('modal.selectDate')}
                   </label>
-                  <div className="grid grid-cols-2 gap-2">
-                    {getAvailableDates().slice(0, 6).map((date, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setSelectedDate(formatDate(date))}
-                        className={`p-2 text-sm rounded-lg border transition-all ${
-                          selectedDate === formatDate(date)
-                            ? 'bg-blue-600 text-white border-blue-600'
-                            : 'bg-white text-slate-700 border-slate-300 hover:border-blue-400'
-                        }`}
-                      >
-                        {formatDate(date)}
-                      </button>
-                    ))}
+                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-3">
+                    {getAvailableDates().slice(0, 6).map((d) => {
+                      const label = formatDate(d);
+                      const isActive = selectedDate === label;
+                      return (
+                        <button
+                          key={label}
+                          type="button"
+                          onClick={() => setSelectedDate(label)}
+                          className={`px-2 lg:px-3 py-2 lg:py-2.5 rounded-lg lg:rounded-xl text-xs lg:text-sm font-medium border transition-all duration-200 ${
+                            isActive
+                              ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
+                              : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-slate-50'
+                          }`}
+                        >
+                          {label}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
 
                 {/* Time Selection */}
-                <div className="mb-6">
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Select Time
+                <div className="mb-6 lg:mb-8">
+                  <label className="block text-xs lg:text-sm font-semibold text-slate-700 mb-2 lg:mb-3">
+                    {t('modal.selectTime')}
                   </label>
-                  <div className="grid grid-cols-3 gap-2">
-                    {availableTimes.map((time) => (
-                      <button
-                        key={time}
-                        onClick={() => setSelectedTime(time)}
-                        className={`p-2 text-sm rounded-lg border transition-all ${
-                          selectedTime === time
-                            ? 'bg-blue-600 text-white border-blue-600'
-                            : 'bg-white text-slate-700 border-slate-300 hover:border-blue-400'
-                        }`}
-                      >
-                        {time}
-                      </button>
-                    ))}
+                  <div className="grid grid-cols-3 gap-2 lg:gap-3">
+                    {availableTimes.map((time) => {
+                      const isActive = selectedTime === time;
+                      return (
+                        <button
+                          key={time}
+                          type="button"
+                          onClick={() => setSelectedTime(time)}
+                          className={`px-2 lg:px-3 py-2 lg:py-2.5 rounded-lg lg:rounded-xl text-xs lg:text-sm font-medium border transition-all duration-200 ${
+                            isActive
+                              ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
+                              : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-slate-50'
+                          }`}
+                        >
+                          {time}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex gap-3">
+                <div className="flex flex-col sm:flex-row items-center gap-3">
                   <button
-                    onClick={() => setIsModalOpen(false)}
-                    className="flex-1 px-4 py-2 border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-50 transition-colors font-medium"
-                  >
-                    Cancel
-                  </button>
-                  <button
+                    type="button"
                     onClick={handleScheduleSubmit}
                     disabled={!selectedDate || !selectedTime}
-                    className={`flex-1 px-4 py-2 rounded-lg font-medium transition-colors ${
-                      selectedDate && selectedTime
-                        ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                        : 'bg-slate-300 text-slate-500 cursor-not-allowed'
-                    }`}
+                    className="w-full sm:flex-1 bg-slate-900 text-white font-semibold py-3 lg:py-3.5 px-4 lg:px-6 rounded-lg lg:rounded-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-all duration-200 hover:bg-slate-800 disabled:hover:bg-slate-900 text-sm lg:text-base"
                   >
-                    Schedule Meeting
+                    <span>{t('modal.confirm')}</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedDate('');
+                      setSelectedTime('');
+                    }}
+                    className="w-full sm:w-auto px-4 lg:px-6 py-3 lg:py-3.5 rounded-lg lg:rounded-xl font-medium border border-slate-300 text-slate-700 bg-white hover:bg-slate-50 transition-all duration-200 text-sm lg:text-base"
+                  >
+                    {tCommon('reset')}
                   </button>
                 </div>
               </div>

@@ -5,15 +5,66 @@ export const Loader = ({ onLoadingComplete }) => {
   const [progress, setProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [isReady, setIsReady] = useState(false);
+  const [isPageReady, setIsPageReady] = useState(false);
+  const [shouldAccelerate, setShouldAccelerate] = useState(false);
 
   useEffect(() => {
-    // Small delay to ensure component is mounted and styled properly
     const readyTimer = setTimeout(() => {
       setIsReady(true);
     }, 50);
 
     return () => clearTimeout(readyTimer);
   }, []);
+
+  // Listen for page readiness
+  useEffect(() => {
+    const checkPageReady = () => {
+      // Check if DOM is loaded
+      if (document.readyState === 'complete') {
+        setIsPageReady(true);
+        return;
+      }
+
+      // Also check for key elements or resources
+      const criticalElements = [
+        // Add selectors for your critical page elements
+        'nav', 'main', '.hero-section'
+      ];
+
+      const allElementsLoaded = criticalElements.every(selector => 
+        document.querySelector(selector) !== null
+      );
+
+      if (allElementsLoaded) {
+        setIsPageReady(true);
+      }
+    };
+
+    // Check immediately
+    checkPageReady();
+
+    // Listen for DOM ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', checkPageReady);
+      window.addEventListener('load', checkPageReady);
+    }
+
+    // Fallback check every 100ms
+    const interval = setInterval(checkPageReady, 100);
+
+    return () => {
+      document.removeEventListener('DOMContentLoaded', checkPageReady);
+      window.removeEventListener('load', checkPageReady);
+      clearInterval(interval);
+    };
+  }, []);
+
+  // Accelerate when page is ready
+  useEffect(() => {
+    if (isPageReady && progress < 90) {
+      setShouldAccelerate(true);
+    }
+  }, [isPageReady, progress]);
 
   useEffect(() => {
     if (!isReady) return;
@@ -25,16 +76,31 @@ export const Loader = ({ onLoadingComplete }) => {
           setTimeout(() => {
             setIsVisible(false);
             onLoadingComplete?.();
-          }, 800);
+          }, 300); // Shorter delay when complete
           return 100;
         }
-        // More consistent progress increments for smoother animation
-        return Math.min(prev + 1.5, 100);
+
+        // Dynamic progress speed based on page readiness
+        let increment = 1.5; // Base speed
+
+        if (shouldAccelerate) {
+          // Accelerate to 90% quickly when page is ready
+          if (prev < 90) {
+            increment = 2; // Much faster
+          } else {
+            increment = 1.5; // Normal speed for final 10%
+          }
+        } else if (isPageReady) {
+          // Page is ready but we haven't started accelerating yet
+          increment = 2.5;
+        }
+
+        return Math.min(prev + increment, 100);
       });
-    }, 80); // Faster updates for smoother animation
+    }, shouldAccelerate ? 40 : 80); // Faster updates when accelerating
 
     return () => clearInterval(timer);
-  }, [onLoadingComplete, isReady]);
+  }, [onLoadingComplete, isReady, shouldAccelerate, isPageReady]);
 
   if (!isVisible) return null;
 
