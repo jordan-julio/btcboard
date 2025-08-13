@@ -1,38 +1,21 @@
-import { NextResponse } from 'next/server';
+import createMiddleware from 'next-intl/middleware';
 
-const locales = ['id', 'en'];
-const defaultLocale = 'id';
-
-export function middleware(request) {
-  const { pathname } = request.nextUrl;
-
-  // Skip middleware for these paths
-  if (
-    pathname.startsWith('/_next/') ||
-    pathname.startsWith('/api/') ||
-    pathname.includes('.') ||
-    pathname === '/favicon.ico'
-  ) {
-    return NextResponse.next();
-  }
-
-  // Check if the pathname already has a supported locale
-  const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  );
-
-  if (pathnameHasLocale) {
-    return NextResponse.next();
-  }
-
-  // Always redirect to Indonesian by default
-  const newUrl = new URL(`/${defaultLocale}${pathname}`, request.url);
-  
-  return NextResponse.redirect(newUrl);
-}
+export default createMiddleware({
+  locales: ['id', 'en'],
+  defaultLocale: 'id',
+  localePrefix: 'always'
+});
 
 export const config = {
+  // Match only internationalized pathnames
   matcher: [
-    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
-  ],
+    // Enable a redirect to a matching locale at the root
+    '/',
+    // Set a cookie to remember the previous locale for
+    // all requests that have a locale prefix
+    '/(id|en)/:path*',
+    // Enable redirects that add missing locales
+    // (e.g. `/pathnames` -> `/en/pathnames`)
+    '/((?!_next|_vercel|.*\\..*).*)'
+  ]
 };

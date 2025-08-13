@@ -10,7 +10,6 @@ import { useRouter } from 'next/navigation';
 export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
   const locale = useLocale();
   const router = useRouter();
-  console.log('Navigation - current locale from useLocale():', locale);
   const t = useTranslations('navigation');
   const tQuote = useTranslations('quote');
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);

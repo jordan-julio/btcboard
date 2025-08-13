@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Eye } from 'lucide-react';
 
-export const CaseStudiesSection = () => {
+export const  CaseStudiesSection = () => {
   const caseStudies = [
     {
       title: "Sky Tower Complex",

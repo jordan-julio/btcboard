@@ -15,10 +15,10 @@ export const metadata = {
 
 export default async function LocaleLayout({children, params}) {
   const { locale } = await params; // Add await if using Next.js 15+
-  
+  console.log(locale);
   // Let next-intl handle the locale validation via i18n.js
-  const messages = await getMessages();
-
+  const messages = await getMessages({ locale });
+  console.log('message', messages);
   return (
     <html lang={locale}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
