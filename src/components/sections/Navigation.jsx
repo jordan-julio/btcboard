@@ -5,9 +5,11 @@ import { Menu, X, Phone, MessageCircle, Mail, FileText, Calculator, User, Buildi
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import LanguageSwitcher from '../LanguageSwitcher';
+import { useRouter } from 'next/navigation';
 
 export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
   const locale = useLocale();
+  const router = useRouter();
   console.log('Navigation - current locale from useLocale():', locale);
   const t = useTranslations('navigation');
   const tQuote = useTranslations('quote');
@@ -95,9 +97,9 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
   };
 
   const navigationItems = [
-    { key: 'products', href: '/products' },
     { key: 'aboutus', href: '/about' },
-    { key: 'innovation', href: '/innovation' }
+    { key: 'products', href: '/products' },
+    /**{ key: 'innovation', href: '/innovation' }**/
   ];
 
   return (
@@ -115,6 +117,9 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
             <motion.div 
               className="flex items-center"
               whileHover={{ scale: 1.02 }}
+              onClick={() => {
+                router.push('/')
+              }}
             >
               <Image src={"/logo.png"} alt="Logo" width={150} height={50} className="h-10" />
             </motion.div>
@@ -314,7 +319,7 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
                       <User className="w-4 h-4 inline mr-1" />
-                      {tQuote('form.fullName')} *
+                      {tQuote('form.fullName')}
                     </label>
                     <input
                       type="text"
@@ -345,7 +350,7 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
                       <Mail className="w-4 h-4 inline mr-1" />
-                      {tQuote('form.email')} *
+                      {tQuote('form.email')}
                     </label>
                     <input
                       type="email"
@@ -359,7 +364,7 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
                       <Phone className="w-4 h-4 inline mr-1" />
-                      {tQuote('form.phone')} *
+                      {tQuote('form.phone')}
                     </label>
                     <input
                       type="tel"
@@ -375,7 +380,7 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
-                      {tQuote('form.projectType')} *
+                      {tQuote('form.projectType')}
                     </label>
                     <select
                       value={quoteForm.projectType}

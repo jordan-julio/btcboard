@@ -126,7 +126,7 @@ export default function HomePage() {
       <StatisticsSection />
       <ProductsSection />
       <CarouselProductSection products={products} />
-      <CaseStudiesSection />
+      {/**<CaseStudiesSection />**/}
       <InnovationSection />
       {/**<CTASection />**/}
       <Footer />
