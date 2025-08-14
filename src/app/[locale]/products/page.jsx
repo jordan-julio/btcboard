@@ -76,13 +76,6 @@ const BTCShowcase = () => {
       trending: false
     },
     {
-      id: 5,
-      category: '2D',
-      image: '/lampiran Foto/Edit/2D/file_00000000eef861f68d584816dbca0c64.png',
-      featured: false,
-      trending: false
-    },
-    {
       id: 6,
       category: '2D',
       image: '/lampiran Foto/Edit/2D/file_00000000950c6230b1273ce8e292476e.png',
