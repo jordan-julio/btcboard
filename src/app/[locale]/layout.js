@@ -55,7 +55,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'BTC Board - Premium PVC Board Solutions',
     description: 'High-quality PVC boards for construction, signage, and industrial applications.',
-    images: ['/1660210131_62f4cbd324852.jpg'], // You'll need to add this image
+    images: ['/twitter-image.png'], // You'll need to add this image
   },
   robots: {
     index: true,
@@ -102,7 +102,7 @@ export default async function LocaleLayout({children, params}) {
               "@type": "Organization",
               "name": "BTC Board",
               "url": "https://btc-board.com",
-              "logo": "https://btc-board.com/logo.png",
+              "logo": "https://btc-board.com/1660210131_62f4cbd324852.jpg",
               "description": "Premium PVC board solutions for construction, signage, and industrial applications",
               "contactPoint": {
                 "@type": "ContactPoint",
