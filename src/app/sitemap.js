@@ -8,12 +8,6 @@ export default function sitemap() {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,
-      alternates: {
-        languages: {
-          en: `${baseUrl}/en`,
-          id: `${baseUrl}/id`,
-        },
-      },
     },
     {
       url: `${baseUrl}/en`,
