@@ -42,7 +42,7 @@ export const Footer = () => {
                   />
                 </div>
               </div>
-              <p className="text-slate-300 mb-8 leading-relaxed text-base max-w-md">
+              <p className="text-slate-300 mb-8 leading-relaxed text-base max-w-full lg:max-w-md">
                 {t('footer.description')}
               </p>
 
@@ -109,7 +109,7 @@ export const Footer = () => {
                   <div className="w-10 h-10 bg-blue-500/20 rounded-lg grid place-items-center shrink-0"><Phone className="w-5 h-5 text-blue-400" /></div>
                   <div>
                     <div className="text-white text-sm font-medium">{t('footer.contact.phoneLabel')}</div>
-                    <div className="text-slate-300 text-sm group-hover:text-blue-300 transition-colors">{t('footer.contact.phoneValue')}</div>
+                    <div className="text-slate-300 text-sm group-hover:text-blue-300 transition-colors">{t('footer.contact.phoneValue')}<br />{t('footer.contact.phoneValue2')}</div>
                   </div>
                 </motion.a>
 

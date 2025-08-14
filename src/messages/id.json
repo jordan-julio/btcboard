@@ -367,10 +367,11 @@
       "emailLabel": "Email",
       "addressLabel": "Alamat",
       "phoneValue": "+62 811 3074 18",
+      "phoneValue2": "(031) 8015289",
       "emailValue": "btcboardsby@gmail.com",
-      "addressLine1": "Jl. Industri No. 123",
-      "addressLine2": "Surabaya, Jawa Timur",
-      "addressLine3": "Indonesia 60111"
+      "addressLine1": "Pergudangan Westgate Tanrise B30",
+      "addressLine2": "Kabupaten Sidoarjo",
+      "addressLine3": "Indonesia"
     },
     "legal": {
       "copyright": "© {year} Bagong Teknindo Cemerlang. Hak cipta dilindungi undang-undang.",
