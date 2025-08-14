@@ -603,11 +603,11 @@ export const ProductsSection = () => {
                   {t('modal.callExperts')}
                 </p>
                 <a 
-                  href="tel:+1234567890" 
+                  href="tel:+62811307418" 
                   className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 lg:px-6 py-2 lg:py-3 rounded-lg lg:rounded-xl font-semibold transition-colors text-sm lg:text-base"
                 >
                   <Phone className="w-4 h-4" />
-                  {t('modal.callNow')}: (123) 456-7890
+                  {t('modal.callNow')}: (+62) 81-1307-418
                 </a>
               </div>
 

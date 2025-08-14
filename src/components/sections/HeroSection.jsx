@@ -136,7 +136,7 @@ export const HeroSection = ({ heroParallax, heroOpacity }) => {
               <span className="text-sm text-slate-600 font-medium">{t('cta.needHelp')}</span>
               <div className="flex items-center gap-4">
                 <motion.a 
-                  href="tel:+1234567890" 
+                  href="tel:+62811307418" 
                   className="flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors duration-200"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
