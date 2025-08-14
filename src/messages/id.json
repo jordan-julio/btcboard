@@ -21,6 +21,7 @@
     "cta": {
       "exploreProducts": "Jelajahi Produk",
       "watchDemo": "Tonton Demo",
+      "followIg": "Follow Instagram",
       "needHelp": "Butuh bantuan segera?",
       "callNow": "Telepon Sekarang",
       "emailUs": "Email Kami"
@@ -358,17 +359,15 @@
       "Solusi Kustom"
     ],
     "resourceLinks": [
-      "Spesifikasi Produk",
-      "Panduan Instalasi",
-      "Sertifikat Kualitas",
-      "Dukungan Teknis"
+      "Produk",
+      "Tentang Kami"
     ],
     "contact": {
       "phoneLabel": "Telepon",
       "emailLabel": "Email",
       "addressLabel": "Alamat",
-      "phoneValue": "+62 812 3456 7890",
-      "emailValue": "info@btc.co.id",
+      "phoneValue": "+62 811 3074 18",
+      "emailValue": "btcboardsby@gmail.com",
       "addressLine1": "Jl. Industri No. 123",
       "addressLine2": "Surabaya, Jawa Timur",
       "addressLine3": "Indonesia 60111"
@@ -386,5 +385,120 @@
   },
 "common": {
   "reset": "Atur Ulang"
-}
+},
+"aboutPage": {
+      "breadcrumb": {
+        "home": "Beranda",
+        "aboutUs": "Tentang Kami"
+      },
+      "hero": {
+        "badge": "Sejak 2018",
+        "title": "Tentang",
+        "titleHighlight": "BTC Board",
+        "description": "CV. Bagong Teknindo Cemerlang telah memproduksi PVC Board berkualitas tinggi sejak 2018, menggunakan material pilihan dan teknologi canggih untuk memberikan solusi terbaik."
+      },
+      "stats": [
+        {
+          "label": "Tahun Pengalaman",
+          "value": "7",
+          "suffix": "+"
+        },
+        {
+          "label": "Standar Kualitas",
+          "value": "100",
+          "suffix": "%"
+        },
+        {
+          "label": "Tingkat Kepuasan",
+          "value": "99",
+          "suffix": "%"
+        }
+      ],
+      "story": {
+        "title": "Perjalanan Kami",
+        "description": "**BTC Board** merupakan produk PVC Board yang diproduksi oleh **CV. Bagong Teknindo Cemerlang** sejak tahun 2018.",
+        "description2": "Kami menggunakan **material pilihan yang berkualitas tinggi** untuk memberikan produk terbaik bagi customer kami. Selain menggunakan material pilihan, BTC Board pun diproses dengan **mesin yang canggih** dan dapat dibentuk sesuai dengan keinginan customer.",
+        "keyPoints": [
+          {
+            "title": "Teknologi Canggih",
+            "description": "Mesin modern untuk hasil optimal"
+          },
+          {
+            "title": "Material Berkualitas",
+            "description": "Bahan pilihan terbaik"
+          },
+          {
+            "title": "Komitmen Pelayanan",
+            "description": "Customer adalah prioritas"
+          }
+        ],
+        "facilitiesCard": {
+          "title": "Fasilitas Modern",
+          "description": "Teknologi terdepan untuk kualitas terbaik"
+        }
+      },
+      "vision": {
+        "title": "Visi Kami",
+        "content": "Menjadi Solusi bagi Kontraktor dan Arsitek dalam hal menyediakan material PVC Board yang berkualitas."
+      },
+      "mission": {
+        "title": "Misi",
+        "brandName": "BTC",
+        "brandHighlight": "BOARD",
+        "subtitle": "Setiap huruf dari nama **BTC** **BOARD** merepresentasikan nilai-nilai fundamental yang menjadi landasan dalam setiap langkah kami",
+        "btcTitle": "BTC Values",
+        "boardTitle": "BOARD Values",
+        "values": [
+          {
+            "letter": "B",
+            "title": "Breakthrough",
+            "description": "Selalu berinovasi dalam menghadirkan produk PVC Board yang berkualitas dan dapat menjadi Solusi dalam hal desain dan pembangunan"
+          },
+          {
+            "letter": "T",
+            "title": "Teamwork", 
+            "description": "Mempererat hubungan antar karyawan dengan cara saling menghargai dan menciptakan suasana kerja yang aman"
+          },
+          {
+            "letter": "C",
+            "title": "Customer Excellence",
+            "description": "Selalu memberikan yang terbaik untuk pelanggan dalam hal produk dan pelayanan"
+          },
+          {
+            "letter": "B",
+            "title": "Best Selling",
+            "description": "Menjadi brand no 1 dan mendominasi pasar PVC Board dengan memberikan produk yang berkualitas dengan harga yang kompetitif"
+          },
+          {
+            "letter": "O",
+            "title": "Outstanding",
+            "description": "Selalu menjaga performa kerja yang baik dalam inovasi produk, kualitas dan efisiensi kerja"
+          },
+          {
+            "letter": "A",
+            "title": "Accountability",
+            "description": "Menjadi brand yang dapat dipercaya dan diandalkan oleh masyarakat"
+          },
+          {
+            "letter": "R",
+            "title": "Responsible",
+            "description": "Bertanggung jawab dan peduli terhadap kesejahteraan Masyarakat dan lingkungan"
+          },
+          {
+            "letter": "D",
+            "title": "Development",
+            "description": "Selalu mengembangkan inovasi produk yang relevan dengan kebutuhan pelanggan"
+          }
+        ]
+      },
+      "cta": {
+        "title": "Siap Memulai Proyek Anda?",
+        "description": "Mari wujudkan proyek impian Anda bersama solusi PVC Board terbaik dari BTC Board",
+        "consultation": "Mulai Konsultasi",
+        "products": "Lihat Produk"
+      }
+    },
+  "Productspage": {
+    "description": "Jelajahi rangkaian lengkap papan dan panel arsitektur premium kami"
+  }
 }

@@ -23,12 +23,14 @@ import {
 import { Navigation } from '@/components/sections/Navigation';
 import { Footer } from '@/components/sections/Footer';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 export default function AboutUsPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState(0);
+  // const [activeSection, setActiveSection] = useState(0);
   const router = useRouter();
+  const t = useTranslations();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,67 +43,81 @@ export default function AboutUsPage() {
   const missionValues = [
     {
       letter: 'B',
-      title: 'Breakthrough',
-      description: 'Selalu berinovasi dalam menghadirkan produk PVC Board yang berkualitas dan dapat menjadi Solusi dalam hal desain dan pembangunan',
+      title: t('aboutPage.mission.values.0.title'),
+      description: t('aboutPage.mission.values.0.description'),
       icon: Lightbulb,
       color: 'blue'
     },
     {
       letter: 'T',
-      title: 'Teamwork',
-      description: 'Mempererat hubungan antar karyawan dengan cara saling menghargai dan menciptakan suasana kerja yang aman',
+      title: t('aboutPage.mission.values.1.title'),
+      description: t('aboutPage.mission.values.1.description'),
       icon: Users,
       color: 'emerald'
     },
     {
       letter: 'C',
-      title: 'Customer Excellence',
-      description: 'Selalu memberikan yang terbaik untuk pelanggan dalam hal produk dan pelayanan',
+      title: t('aboutPage.mission.values.2.title'),
+      description: t('aboutPage.mission.values.2.description'),
       icon: Star,
       color: 'amber'
     },
     {
       letter: 'B',
-      title: 'Best Selling',
-      description: 'Menjadi brand no 1 dan mendominasi pasar PVC Board dengan memberikan produk yang berkualitas dengan harga yang kompetitif',
+      title: t('aboutPage.mission.values.3.title'),
+      description: t('aboutPage.mission.values.3.description'),
       icon: TrendingUp,
       color: 'purple'
     },
     {
       letter: 'O',
-      title: 'Outstanding',
-      description: 'Selalu menjaga performa kerja yang baik dalam inovasi produk, kualitas dan efisiensi kerja',
+      title: t('aboutPage.mission.values.4.title'),
+      description: t('aboutPage.mission.values.4.description'),
       icon: Award,
       color: 'rose'
     },
     {
       letter: 'A',
-      title: 'Accountability',
-      description: 'Menjadi brand yang dapat dipercaya dan diandalkan oleh masyarakat',
+      title: t('aboutPage.mission.values.5.title'),
+      description: t('aboutPage.mission.values.5.description'),
       icon: Shield,
       color: 'indigo'
     },
     {
       letter: 'R',
-      title: 'Responsible',
-      description: 'Bertanggung jawab dan peduli terhadap kesejahteraan Masyarakat dan lingkungan',
+      title: t('aboutPage.mission.values.6.title'),
+      description: t('aboutPage.mission.values.6.description'),
       icon: Heart,
       color: 'teal'
     },
     {
       letter: 'D',
-      title: 'Development',
-      description: 'Selalu mengembangkan inovasi produk yang relevan dengan kebutuhan pelanggan',
+      title: t('aboutPage.mission.values.7.title'),
+      description: t('aboutPage.mission.values.7.description'),
       icon: Building,
       color: 'orange'
     }
   ];
 
   const stats = [
-    { label: 'Tahun Pengalaman', value: '7', suffix: '+', icon: Calendar },
-    { label: 'Standar Kualitas', value: '100', suffix: '%', icon: CheckCircle },
-    { label: 'Tingkat Kepuasan', value: '99', suffix: '%', icon: Star },
-    // { label: 'Tim Profesional', value: '50', suffix: '+', icon: Users }
+    { 
+      label: t('aboutPage.stats.0.label'), 
+      value: t('aboutPage.stats.0.value'), 
+      suffix: t('aboutPage.stats.0.suffix'), 
+      icon: Calendar 
+    },
+    { 
+      label: t('aboutPage.stats.1.label'), 
+      value: t('aboutPage.stats.1.value'), 
+      suffix: t('aboutPage.stats.1.suffix'), 
+      icon: CheckCircle 
+    },
+    { 
+      label: t('aboutPage.stats.2.label'), 
+      value: t('aboutPage.stats.2.value'), 
+      suffix: t('aboutPage.stats.2.suffix'), 
+      icon: Star 
+    }
   ];
 
   const getColorClasses = (color) => {
@@ -117,6 +133,27 @@ export default function AboutUsPage() {
     };
     return colors[color] || colors.blue;
   };
+
+  const keyPoints = [
+    {
+      title: t('aboutPage.story.keyPoints.0.title'),
+      description: t('aboutPage.story.keyPoints.0.description'),
+      icon: Zap,
+      color: 'blue'
+    },
+    {
+      title: t('aboutPage.story.keyPoints.1.title'),
+      description: t('aboutPage.story.keyPoints.1.description'),
+      icon: CheckCircle,
+      color: 'emerald'
+    },
+    {
+      title: t('aboutPage.story.keyPoints.2.title'),
+      description: t('aboutPage.story.keyPoints.2.description'),
+      icon: Handshake,
+      color: 'purple'
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
@@ -137,9 +174,9 @@ export default function AboutUsPage() {
               <div className="flex items-center gap-2 text-sm text-gray-500 mb-8">
                 <span onClick={() => {
                     router.push('/')
-                }}>Beranda</span>
+                }}>{t('aboutPage.breadcrumb.home')}</span>
                 <ChevronRight className="w-4 h-4" />
-                <span className="text-blue-600 font-medium">Tentang Kami</span>
+                <span className="text-blue-600 font-medium">{t('aboutPage.breadcrumb.aboutUs')}</span>
               </div>
 
               {/* Main Content */}
@@ -147,17 +184,16 @@ export default function AboutUsPage() {
                 <div>
                   <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
                     <Factory className="w-4 h-4" />
-                    Sejak 2018
+                    {t('aboutPage.hero.badge')}
                   </div>
                   
                   <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6">
-                    Tentang
-                    <span className="block text-blue-600">BTC Board</span>
+                    {t('aboutPage.hero.title')}
+                    <span className="block text-blue-600">{t('aboutPage.hero.titleHighlight')}</span>
                   </h1>
                   
                   <p className="text-xl text-gray-600 leading-relaxed max-w-3xl">
-                    CV. Bagong Teknindo Cemerlang telah memproduksi PVC Board berkualitas tinggi sejak 2018, 
-                    menggunakan material pilihan dan teknologi canggih untuk memberikan solusi terbaik.
+                    {t('aboutPage.hero.description')}
                   </p>
                 </div>
 
@@ -215,48 +251,41 @@ export default function AboutUsPage() {
             <div className="lg:col-span-3 space-y-8">
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                  Perjalanan Kami
+                  {t('aboutPage.story.title')}
                 </h2>
                 <div className="w-16 h-1 bg-blue-600 rounded-full mb-8"></div>
               </div>
               
               <div className="prose prose-lg max-w-none">
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                  <strong className="text-gray-900">BTC Board</strong> merupakan produk PVC Board yang diproduksi oleh 
-                  <strong className="text-gray-900"> CV. Bagong Teknindo Cemerlang</strong> sejak tahun 2018.
+                  <span dangerouslySetInnerHTML={{ 
+                    __html: t('aboutPage.story.description').replace(/\*\*(.*?)\*\*/g, '<strong class="text-gray-900">$1</strong>') 
+                  }} />
                 </p>
                 
                 <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                  Kami menggunakan <strong className="text-gray-900">material pilihan yang berkualitas tinggi </strong> 
-                  untuk memberikan produk terbaik bagi customer kami. Selain menggunakan material pilihan, 
-                  BTC Board pun diproses dengan <strong className="text-gray-900">mesin yang canggih </strong> 
-                  dan dapat dibentuk sesuai dengan keinginan customer.
+                  <span dangerouslySetInnerHTML={{ 
+                    __html: t('aboutPage.story.description2').replace(/\*\*(.*?)\*\*/g, '<strong class="text-gray-900">$1</strong>') 
+                  }} />
                 </p>
               </div>
 
               {/* Key Points */}
               <div className="grid sm:grid-cols-3 gap-6">
-                <div className="text-center sm:text-left">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-xl mb-4">
-                    <Zap className="w-6 h-6 text-blue-600" />
-                  </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Teknologi Canggih</h3>
-                  <p className="text-sm text-gray-600">Mesin modern untuk hasil optimal</p>
-                </div>
-                <div className="text-center sm:text-left">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-emerald-100 rounded-xl mb-4">
-                    <CheckCircle className="w-6 h-6 text-emerald-600" />
-                  </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Material Berkualitas</h3>
-                  <p className="text-sm text-gray-600">Bahan pilihan terbaik</p>
-                </div>
-                <div className="text-center sm:text-left">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-purple-100 rounded-xl mb-4">
-                    <Handshake className="w-6 h-6 text-purple-600" />
-                  </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Komitmen Pelayanan</h3>
-                  <p className="text-sm text-gray-600">Customer adalah prioritas</p>
-                </div>
+                {keyPoints.map((point, index) => {
+                  const IconComponent = point.icon;
+                  const colorClasses = getColorClasses(point.color);
+                  
+                  return (
+                    <div key={index} className="text-center sm:text-left">
+                      <div className={`inline-flex items-center justify-center w-12 h-12 ${colorClasses.bg} rounded-xl mb-4`}>
+                        <IconComponent className={`w-6 h-6 ${colorClasses.text}`} />
+                      </div>
+                      <h3 className="font-semibold text-gray-900 mb-2">{point.title}</h3>
+                      <p className="text-sm text-gray-600">{point.description}</p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
             
@@ -271,8 +300,8 @@ export default function AboutUsPage() {
                   />
                 </div>
                 <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-6 max-w-64">
-                  <h4 className="font-semibold text-gray-900 mb-2">Fasilitas Modern</h4>
-                  <p className="text-sm text-gray-600">Teknologi terdepan untuk kualitas terbaik</p>
+                  <h4 className="font-semibold text-gray-900 mb-2">{t('aboutPage.story.facilitiesCard.title')}</h4>
+                  <p className="text-sm text-gray-600">{t('aboutPage.story.facilitiesCard.description')}</p>
                 </div>
               </div>
             </div>
@@ -287,7 +316,7 @@ export default function AboutUsPage() {
             <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-2xl mb-6">
               <Eye className="w-8 h-8 text-white" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Visi Kami</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">{t('aboutPage.vision.title')}</h2>
           </div>
           
           <div className="relative">
@@ -295,14 +324,13 @@ export default function AboutUsPage() {
             <div className="relative bg-white rounded-2xl shadow-sm border border-gray-200 p-8 ml-16">
               <Quote className="w-8 h-8 text-blue-600 mb-4" />
               <blockquote className="text-xl md:text-2xl font-medium text-gray-900 leading-relaxed">
-                Menjadi Solusi bagi Kontraktor dan Arsitek dalam hal menyediakan material PVC Board yang berkualitas.
+                {t('aboutPage.vision.content')}
               </blockquote>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Mission Section */}
       {/* Mission Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -312,11 +340,13 @@ export default function AboutUsPage() {
             </div>
             
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Misi <span className="text-gray-900">BTC</span> <span className="text-blue-600">BOARD</span>
+              {t('aboutPage.mission.title')} <span className="text-gray-900">{t('aboutPage.mission.brandName')}</span> <span className="text-blue-600">{t('aboutPage.mission.brandHighlight')}</span>
             </h2>
             
             <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
-              Setiap huruf dari nama <span className="font-semibold text-gray-900">BTC</span> <span className="font-semibold text-blue-600">BOARD</span> merepresentasikan nilai-nilai fundamental yang menjadi landasan dalam setiap langkah kami
+              <span dangerouslySetInnerHTML={{ 
+                __html: t('aboutPage.mission.subtitle').replace(/\*\*(.*?)\*\*/g, '<span class="font-semibold text-gray-900">$1</span>') 
+              }} />
             </p>
 
             {/* Visual Separator */}
@@ -342,7 +372,7 @@ export default function AboutUsPage() {
             {/* BTC Group */}
             <div>
               <h3 className="text-2xl font-bold text-center mb-8 text-gray-900">
-                <span className="text-gray-800">BTC</span> Values
+                <span className="text-gray-800">{t('aboutPage.mission.btcTitle')}</span>
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {missionValues.slice(0, 3).map((mission, index) => {
@@ -374,7 +404,7 @@ export default function AboutUsPage() {
             {/* BOARD Group */}
             <div>
               <h3 className="text-2xl font-bold text-center mb-8 text-gray-900">
-                <span className="text-blue-600">BOARD</span> Values
+                <span className="text-blue-600">{t('aboutPage.mission.boardTitle')}</span>
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
                 {missionValues.slice(3).map((mission, index) => {
@@ -410,20 +440,20 @@ export default function AboutUsPage() {
       <section className="py-20 bg-gray-900">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Siap Memulai Proyek Anda?
+            {t('aboutPage.cta.title')}
           </h2>
           
           <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-            Mari wujudkan proyek impian Anda bersama solusi PVC Board terbaik dari BTC Board
+            {t('aboutPage.cta.description')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="group px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
-              <span>Mulai Konsultasi</span>
+              <span>{t('aboutPage.cta.consultation')}</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
             <button className="px-8 py-3 bg-transparent border border-gray-600 hover:border-gray-500 text-white font-semibold rounded-lg transition-all duration-300">
-              Lihat Produk
+              {t('aboutPage.cta.products')}
             </button>
           </div>
         </div>

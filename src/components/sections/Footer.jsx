@@ -62,7 +62,7 @@ export const Footer = () => {
 
             {/* Solutions & Resources */}
             <motion.div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-8" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} viewport={{ once: true }}>
-              <div>
+              {/*<div>
                 <h4 className="text-xl font-semibold mb-6 text-white flex items-center">
                   <span className="w-2 h-2 bg-blue-400 rounded-full mr-3" />
                   {t('footer.columns.solutions')}
@@ -77,7 +77,7 @@ export const Footer = () => {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </div>*/}
 
               <div>
                 <h4 className="text-xl font-semibold mb-6 text-white flex items-center">

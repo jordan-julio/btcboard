@@ -54,12 +54,12 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
 
       ${contactMessage}
     `;
-    const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/+62811307418?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
     };
 
     const callForQuote = () => {
-      window.location.href = 'tel:+1234567890';
+      window.location.href = 'tel:+62811307418';
     };
 
   const emailQuote = () => {
@@ -92,7 +92,7 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
       ${quoteForm.name}
     `;
         
-    window.location.href = `mailto:quote@company.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:btcboardsby@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   const navigationItems = [
@@ -212,11 +212,8 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
                   </motion.a>
                 ))}
                 
-                {/* Mobile Language Switcher */}
-                <div className="pt-4">
-                  <LanguageSwitcher />
-                </div>
-                
+
+                <LanguageSwitcher />                
                 <motion.button 
                   className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium mt-8 flex items-center justify-center gap-2"
                   initial={{ opacity: 0, y: 20 }}

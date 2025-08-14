@@ -16,11 +16,15 @@ export const StatisticsSection = () => {
   return (
     <section className="py-20 bg-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+        {/* Responsive Layout: 1 column on mobile, 2 columns on small screens, 3 columns on medium+ */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              className="text-center text-white"
+              className={`text-center text-white ${
+                // Center the third item across the full width when it's alone on the second row
+                index === 2 ? 'sm:col-span-2 sm:justify-self-center md:col-span-1 md:justify-self-auto' : ''
+              }`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}

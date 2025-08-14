@@ -1,11 +1,13 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Play, CheckCircle, Star, Shield, Phone, Mail } from 'lucide-react';
+import { ArrowRight, Play, CheckCircle, Star, Shield, Phone, Mail, Instagram } from 'lucide-react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 
 export const HeroSection = ({ heroParallax, heroOpacity }) => {
+  const router = useRouter();
   const t = useTranslations('hero');
   return (
     <section className="relative min-h-screen bg-white overflow-hidden">
@@ -103,6 +105,9 @@ export const HeroSection = ({ heroParallax, heroOpacity }) => {
                 whileHover={{ scale: 1.02, y: -1 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 100, damping: 15 }}
+                onClick={() => {
+                  router.push('/products')
+                }}
               >
                 {t('cta.exploreProducts')}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
@@ -112,9 +117,12 @@ export const HeroSection = ({ heroParallax, heroOpacity }) => {
                 whileHover={{ scale: 1.02, y: -1 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 100, damping: 15 }}
+                onClick={() => {
+                  window.open('https://www.instagram.com/btcboard.id/', '_blank', 'noopener,noreferrer');
+                }}
               >
-                <Play className="w-5 h-5" />
-                {t('cta.watchDemo')}
+                <Instagram className="w-5 h-5" />
+                {t('cta.followIg')}
               </motion.button>
             </motion.div>
 

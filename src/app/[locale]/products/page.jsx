@@ -14,8 +14,10 @@ import { Footer } from '@/components/sections/Footer';
 import { Navigation } from '@/components/sections/Navigation';
 import { useScroll, useTransform } from 'framer-motion';
 import Loader from '@/components/utility/Loader';
+import { useTranslations } from 'next-intl';
 
 const BTCShowcase = () => {
+  const t = useTranslations();
   const [selectedImage, setSelectedImage] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -392,7 +394,7 @@ const BTCShowcase = () => {
             </h1>
             
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Explore our complete range of premium architectural boards and panels
+              {t('Productspage.description')}
             </p>
           </div>
         </div>
@@ -446,18 +448,18 @@ const BTCShowcase = () => {
       <section className="py-16 bg-gradient-to-br from-gray-900 to-blue-900">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Start Your Project?
+            {t('aboutPage.cta.title')}
           </h2>
           <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-            Let our expert team help you choose the perfect board solution for your architectural project
+            {t('aboutPage.cta.description')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors flex items-center justify-center gap-2">
-              <span>Get Quote</span>
+              <span>{t('navigation.getQuote')}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
             <button className="px-8 py-3 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white font-semibold rounded-xl transition-colors">
-              Download Catalog
+              {t('products.cta.catalog')}
             </button>
           </div>
         </div>

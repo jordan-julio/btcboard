@@ -21,6 +21,7 @@
     "cta": {
       "exploreProducts": "Explore Products",
       "watchDemo": "Watch Demo",
+      "followIg": "Follow Instagram",
       "needHelp": "Need immediate assistance?",
       "callNow": "Call Now",
       "emailUs": "Email Us"
@@ -360,17 +361,15 @@
       "Custom Solutions"
     ],
     "resourceLinks": [
-      "Product Specifications",
-      "Installation Guide",
-      "Quality Certificates",
-      "Technical Support"
+      "About Us",
+      "Products"
     ],
     "contact": {
       "phoneLabel": "Phone",
       "emailLabel": "Email",
       "addressLabel": "Address",
-      "phoneValue": "+62 812 3456 7890",
-      "emailValue": "info@btc.co.id",
+      "phoneValue": "+62811307418",
+      "emailValue": "btcboardsby@gmail.com",
       "addressLine1": "Jl. Industri No. 123",
       "addressLine2": "Surabaya, East Java",
       "addressLine3": "Indonesia 60111"
@@ -389,6 +388,120 @@
 
   "common": {
     "reset": "Reset"
+  },
+  "aboutPage": {
+    "breadcrumb": {
+      "home": "Home",
+      "aboutUs": "About Us"
+    },
+    "hero": {
+      "badge": "Since 2018",
+      "title": "About",
+      "titleHighlight": "BTC Board",
+      "description": "CV. Bagong Teknindo Cemerlang has been producing high-quality PVC Boards since 2018, using premium materials and advanced technology to provide the best solutions."
+    },
+    "stats": [
+      {
+        "label": "Years Experience",
+        "value": "7",
+        "suffix": "+"
+      },
+      {
+        "label": "Quality Standard",
+        "value": "100",
+        "suffix": "%"
+      },
+      {
+        "label": "Satisfaction Rate",
+        "value": "99",
+        "suffix": "%"
+      }
+    ],
+    "story": {
+      "title": "Our Journey",
+      "description": "**BTC Board** is a PVC Board product manufactured by **CV. Bagong Teknindo Cemerlang** since 2018.",
+      "description2": "We use **high-quality premium materials** to provide the best products for our customers. In addition to using premium materials, BTC Board is processed with **advanced machinery** and can be shaped according to customer requirements.",
+      "keyPoints": [
+        {
+          "title": "Advanced Technology",
+          "description": "Modern machinery for optimal results"
+        },
+        {
+          "title": "Quality Materials",
+          "description": "Premium selected materials"
+        },
+        {
+          "title": "Service Commitment",
+          "description": "Customer is our priority"
+        }
+      ],
+      "facilitiesCard": {
+        "title": "Modern Facilities",
+        "description": "Leading technology for the best quality"
+      }
+    },
+    "vision": {
+      "title": "Our Vision",
+      "content": "To become a solution for contractors and architects in providing quality PVC Board materials."
+    },
+    "mission": {
+      "title": "Mission",
+      "brandName": "BTC",
+      "brandHighlight": "BOARD",
+      "subtitle": "Each letter from the name **BTC** **BOARD** represents fundamental values that form the foundation of every step we take",
+      "btcTitle": "BTC Values",
+      "boardTitle": "BOARD Values",
+      "values": [
+        {
+          "letter": "B",
+          "title": "Breakthrough",
+          "description": "Always innovate in presenting quality PVC Board products that can be a solution in design and construction"
+        },
+        {
+          "letter": "T", 
+          "title": "Teamwork",
+          "description": "Strengthen relationships between employees by respecting each other and creating a safe work environment"
+        },
+        {
+          "letter": "C",
+          "title": "Customer Excellence", 
+          "description": "Always provide the best for customers in terms of products and services"
+        },
+        {
+          "letter": "B",
+          "title": "Best Selling",
+          "description": "Become the #1 brand and dominate the PVC Board market by providing quality products at competitive prices"
+        },
+        {
+          "letter": "O",
+          "title": "Outstanding",
+          "description": "Always maintain good work performance in product innovation, quality and work efficiency"
+        },
+        {
+          "letter": "A",
+          "title": "Accountability", 
+          "description": "Become a brand that can be trusted and relied upon by the community"
+        },
+        {
+          "letter": "R",
+          "title": "Responsible",
+          "description": "Responsible and caring for the welfare of society and the environment"
+        },
+        {
+          "letter": "D",
+          "title": "Development",
+          "description": "Always develop product innovations that are relevant to customer needs"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Start Your Project?",
+      "description": "Let's realize your dream project together with the best PVC Board solutions from BTC Board",
+      "consultation": "Start Consultation",
+      "products": "View Products"
+    }
+  },
+  "Productspage": {
+    "description": "Explore our complete range of premium architectural boards and panels"
   }
-  
 }
