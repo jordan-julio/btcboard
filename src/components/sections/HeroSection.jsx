@@ -183,7 +183,7 @@ export const HeroSection = ({ heroParallax, heroOpacity }) => {
               
               {/* Mobile-Optimized Floating Stats Cards */}
               <motion.div
-                className="absolute -left-2 sm:-left-6 top-15 sm:top-20 bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl p-3 sm:p-6 border border-slate-100/60"
+                className="hidden absolute -left-2 sm:-left-6 top-15 sm:top-20 bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl p-3 sm:p-6 border border-slate-100/60"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1, duration: 0.6 }}

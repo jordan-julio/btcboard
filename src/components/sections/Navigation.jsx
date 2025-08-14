@@ -96,6 +96,7 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
   };
 
   const navigationItems = [
+    { key: 'home', href: '/'},
     { key: 'aboutus', href: '/about' },
     { key: 'products', href: '/products' },
     /**{ key: 'innovation', href: '/innovation' }**/
