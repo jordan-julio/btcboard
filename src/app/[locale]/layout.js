@@ -72,8 +72,8 @@ export const metadata = {
   },
   verification: {
     // Add these after setting up in Google Search Console
-    // google: 'your-google-verification-code',
-    // bing: 'your-bing-verification-code',
+    google: 'ZVqW1SISGBHlcQvOXavcTiTbWOeNIHbpXFCnwyXMTk4',
+    // bing: 'your-bing-verification-code', 
   },
 };
 
