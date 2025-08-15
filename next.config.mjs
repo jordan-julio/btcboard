@@ -6,7 +6,13 @@ const nextConfig = {
   // Ensure proper locale handling
   trailingSlash: false,
   images: {
-    remotePatterns: [new URL('https://images.unsplash.com/**')],
+    remotePatterns: [{
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
+      },],
+    formats: ['image/webp', 'image/avif'],
   },
 };
 

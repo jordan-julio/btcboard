@@ -72,9 +72,9 @@ export const ProductsSection = () => {
         t('categories.2d.applications.2')
       ],
       images: [
-        '/lampiran Foto/Edit/2D/CNC 2D.jpg',
-        '/lampiran Foto/Edit/2D/file_00000000eef861f68d584816dbca0c64.png',
-        '/lampiran Foto/Edit/2D/file_00000000ee7c61fb92adf3eff0ba2a68.png'
+        '/lampiran Foto/Edit/2D/CNC 2D.webp',
+        '/lampiran Foto/Edit/2D/file_00000000eef861f68d584816dbca0c64.webp',
+        '/lampiran Foto/Edit/2D/file_00000000ee7c61fb92adf3eff0ba2a68.webp'
       ],
       icon: <Grid3x3 className="w-5 h-5 lg:w-6 lg:h-6" />,
       bgGradient: 'from-slate-50/80 via-blue-50/40 to-indigo-50/60',
@@ -100,9 +100,9 @@ export const ProductsSection = () => {
         t('categories.3d.applications.2')
       ],
       images: [
-        '/lampiran Foto/Edit/3D/CNC 3D.jpg',
-        '/lampiran Foto/Edit/3D/file_00000000424061f88b22903e54ceeb91 (1).png',
-        '/lampiran Foto/Edit/3D/file_000000009e4861f98708e932c778ea3a.png'
+        '/lampiran Foto/Edit/3D/CNC 3D.webp',
+        '/lampiran Foto/Edit/3D/file_00000000424061f88b22903e54ceeb91 (1).webp',
+        '/lampiran Foto/Edit/3D/file_000000009e4861f98708e932c778ea3a.webp'
       ],
       icon: <Layers className="w-5 h-5 lg:w-6 lg:h-6" />,
       bgGradient: 'from-gray-50/80 via-emerald-50/40 to-teal-50/60',
@@ -128,9 +128,9 @@ export const ProductsSection = () => {
         t('categories.laminating.applications.2')
       ],
       images: [
-        '/lampiran Foto/Edit/Laminating/IMG_20231002_104209.jpg',
-        '/lampiran Foto/Edit/Laminating/file_000000005a3061f7a309f284297a968d.png',
-        '/lampiran Foto/Edit/Laminating/DB7FF596-3BCD-4A74-96EE-8D89EA99EC47.png'
+        '/lampiran Foto/Edit/Laminating/IMG_20231002_104209.webp',
+        '/lampiran Foto/Edit/Laminating/file_000000005a3061f7a309f284297a968d.webp',
+        '/lampiran Foto/Edit/Laminating/DB7FF596-3BCD-4A74-96EE-8D89EA99EC47.webp'
       ],
       icon: <Paintbrush className="w-5 h-5 lg:w-6 lg:h-6" />,
       bgGradient: 'from-amber-50/80 via-orange-50/40 to-yellow-50/60',
@@ -156,9 +156,9 @@ export const ProductsSection = () => {
         t('categories.polos.applications.2')
       ],
       images: [
-        '/lampiran Foto/Edit/Polos/file_0000000016e061f68fd233de68b39ad5.png',
-        '/lampiran Foto/Edit/Polos/file_0000000009e062469df01559f01cb644.png',
-        '/lampiran Foto/Edit/Polos/IMG-20250805-WA0019.jpg'
+        '/lampiran Foto/Edit/Polos/file_0000000016e061f68fd233de68b39ad5.webp',
+        '/lampiran Foto/Edit/Polos/file_0000000009e062469df01559f01cb644.webp',
+        '/lampiran Foto/Edit/Polos/IMG-20250805-WA0019.webp'
       ],
       icon: <Square className="w-5 h-5 lg:w-6 lg:h-6" />,
       bgGradient: 'from-indigo-50/80 via-purple-50/40 to-violet-50/60',

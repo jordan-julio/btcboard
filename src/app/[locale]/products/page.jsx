@@ -15,6 +15,7 @@ import { Navigation } from '@/components/sections/Navigation';
 import { useScroll, useTransform } from 'framer-motion';
 import Loader from '@/components/utility/Loader';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 const BTCShowcase = () => {
   const t = useTranslations();
@@ -50,175 +51,175 @@ const BTCShowcase = () => {
     {
       id: 1,
       category: '2D',
-      image: '/lampiran Foto/Edit/2D/CNC 2D.jpg',
+      image: '/lampiran Foto/Edit/2D/CNC 2D.webp',
       featured: false,
       trending: false
     },
     {
       id: 2,
       category: '2D',
-      image: '/lampiran Foto/Edit/2D/file_00000000aa2c622f944bb7788d5bddde.png',
+      image: '/lampiran Foto/Edit/2D/file_00000000aa2c622f944bb7788d5bddde.webp',
       featured: false,
       trending: false
     },
     {
       id: 3,
       category: '2D',
-      image: '/lampiran Foto/Edit/2D/file_00000000d46c61fdb018129b9e181e4e.png',
+      image: '/lampiran Foto/Edit/2D/file_00000000d46c61fdb018129b9e181e4e.webp',
       featured: false,
       trending: false
     },
     {
       id: 4,
       category: '2D',
-      image: '/lampiran Foto/Edit/2D/file_00000000ee7c61fb92adf3eff0ba2a68.png',
+      image: '/lampiran Foto/Edit/2D/file_00000000ee7c61fb92adf3eff0ba2a68.webp',
       featured: false,
       trending: false
     },
     {
       id: 6,
       category: '2D',
-      image: '/lampiran Foto/Edit/2D/file_00000000950c6230b1273ce8e292476e.png',
+      image: '/lampiran Foto/Edit/2D/file_00000000950c6230b1273ce8e292476e.webp',
       featured: false,
       trending: false
     },
     {
       id: 7,
       category: '2D',
-      image: '/lampiran Foto/Edit/2D/file_00000000424061f88b22903e54ceeb91 (1).png',
+      image: '/lampiran Foto/Edit/2D/file_00000000424061f88b22903e54ceeb91 (1).webp',
       featured: false,
       trending: false
     },
     {
       id: 8,
       category: '2D',
-      image: '/lampiran Foto/Edit/2D/file_0000000038206230ab25ff8e0b760327.png',
+      image: '/lampiran Foto/Edit/2D/file_0000000038206230ab25ff8e0b760327.webp',
       featured: false,
       trending: false
     },
     {
       id: 9,
       category: '3D',
-      image: '/lampiran Foto/Edit/3D/CNC 3D.jpg',
+      image: '/lampiran Foto/Edit/3D/CNC 3D.webp',
       featured: false,
       trending: false
     },
     {
       id: 10,
       category: '3D',
-      image: '/lampiran Foto/Edit/3D/file_000000009e4861f98708e932c778ea3a.png',
+      image: '/lampiran Foto/Edit/3D/file_000000009e4861f98708e932c778ea3a.webp',
       featured: false,
       trending: false
     },
     {
       id: 11,
       category: '3D',
-      image: '/lampiran Foto/Edit/3D/file_00000000057c61f7b155c3c82768aace.png',
+      image: '/lampiran Foto/Edit/3D/file_00000000057c61f7b155c3c82768aace.webp',
       featured: false,
       trending: false
     },
     {
       id: 12,
       category: '3D',
-      image: '/lampiran Foto/Edit/3D/file_00000000921c61f5bdb3334751f44e4d.png',
+      image: '/lampiran Foto/Edit/3D/file_00000000921c61f5bdb3334751f44e4d.webp',
       featured: false,
       trending: false
     },
     {
       id: 13,
       category: '3D',
-      image: '/lampiran Foto/Edit/3D/file_00000000424061f88b22903e54ceeb91 (1).png',
+      image: '/lampiran Foto/Edit/3D/file_00000000424061f88b22903e54ceeb91 (1).webp',
       featured: false,
       trending: false
     },
     {
       id: 14,
       category: '3D',
-      image: '/lampiran Foto/Edit/3D/IMG-20250801-WA0013.jpg',
+      image: '/lampiran Foto/Edit/3D/IMG-20250801-WA0013.webp',
       featured: false,
       trending: false
     },
     {
       id: 15,
       category: '3D',
-      image: '/lampiran Foto/Edit/3D/IMG-20250801-WA0014.jpg',
+      image: '/lampiran Foto/Edit/3D/IMG-20250801-WA0014.webp',
       featured: false,
       trending: false
     },
     {
       id: 16,
       category: '3D',
-      image: '/lampiran Foto/Edit/3D/IMG-20250804-WA0000.jpg',
+      image: '/lampiran Foto/Edit/3D/IMG-20250804-WA0000.webp',
       featured: false,
       trending: false
     },
     {
       id: 17,
       category: '3D',
-      image: '/lampiran Foto/Edit/3D/IMG-20250804-WA0001.jpg',
+      image: '/lampiran Foto/Edit/3D/IMG-20250804-WA0001.webp',
       featured: false,
       trending: false
     },
     {
       id: 18,
       category: '3D',
-      image: '/lampiran Foto/Edit/3D/IMG-20250804-WA0002.jpg',
+      image: '/lampiran Foto/Edit/3D/IMG-20250804-WA0002.webp',
       featured: false,
       trending: false
     },
     {
       id: 19,
       category: 'Laminating',
-      image: '/lampiran Foto/Edit/Laminating/DB7FF596-3BCD-4A74-96EE-8D89EA99EC47.png',
+      image: '/lampiran Foto/Edit/Laminating/DB7FF596-3BCD-4A74-96EE-8D89EA99EC47.webp',
       featured: false,
       trending: false
     },
     {
       id: 20,
       category: 'Laminating',
-      image: '/lampiran Foto/Edit/Laminating/file_000000005a3061f7a309f284297a968d.png',
+      image: '/lampiran Foto/Edit/Laminating/file_000000005a3061f7a309f284297a968d.webp',
       featured: false,
       trending: false
     },
     {
       id: 21,
       category: 'Laminating',
-      image: '/lampiran Foto/Edit/Laminating/IMG-20250805-WA0017.jpg',
+      image: '/lampiran Foto/Edit/Laminating/IMG-20250805-WA0017.webp',
       featured: false,
       trending: false
     },
     {
       id: 22,
       category: 'Laminating',
-      image: '/lampiran Foto/Edit/Laminating/IMG_20231002_104209.jpg',
+      image: '/lampiran Foto/Edit/Laminating/IMG_20231002_104209.webp',
       featured: false,
       trending: false
     },
     {
       id: 23,
       category: 'Plain Sheet',
-      image: '/lampiran Foto/Edit/file_00000000cdbc61f98c08a554e0f2405a.png',
+      image: '/lampiran Foto/Edit/file_00000000cdbc61f98c08a554e0f2405a.webp',
       featured: false,
       trending: false
     },
     {
       id: 24,
       category: 'Plain Sheet',
-      image: '/lampiran Foto/Edit/file_00000000f6e461f7870e257f7a13c812.png',
+      image: '/lampiran Foto/Edit/file_00000000f6e461f7870e257f7a13c812.webp',
       featured: false,
       trending: false
     },
     {
       id: 25,
       category: 'Plain Sheet',
-      image: '/lampiran Foto/Edit/file_000000008db061f6a9aed16d9bb72203.png',
+      image: '/lampiran Foto/Edit/file_000000008db061f6a9aed16d9bb72203.webp',
       featured: false,
       trending: false
     },
     {
       id: 26,
       category: 'Plain Sheet',
-      image: '/lampiran Foto/Edit/IMG-20250801-WA0020.jpg',
+      image: '/lampiran Foto/Edit/IMG-20250801-WA0020.webp',
       featured: false,
       trending: false
     },
@@ -240,11 +241,11 @@ const BTCShowcase = () => {
 
   const getCategoryColor = (category) => {
     switch(category) {
-      case '2D': return 'bg-green-500';
-      case '3D': return 'bg-orange-500';
-      case 'Laminating': return 'bg-purple-500';
-      case 'Plain Sheet': return 'bg-blue-500';
-      default: return 'bg-gray-500';
+      case '2D': return 'bg-green-700 text-white'; // Darker green for better contrast
+      case '3D': return 'bg-orange-600 text-white'; // Darker orange
+      case 'Laminating': return 'bg-purple-700 text-white'; // Darker purple
+      case 'Plain Sheet': return 'bg-blue-700 text-white'; // Darker blue
+      default: return 'bg-gray-700 text-white';
     }
   };
 
@@ -255,14 +256,17 @@ const BTCShowcase = () => {
   const ProductCard = ({ item, index }) => {
     return (
       <div 
-        className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer"
+        className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl cursor-pointer"
         onClick={() => setSelectedImage(item)}
       >
         {/* Image Container */}
         <div className="relative w-full overflow-hidden">
-          <img
+          <Image
             src={item.image}
             alt={`BTC Board ${item.category}`}
+            width={380}  // Max display width
+            height={570} // Max display height (maintains aspect ratio)
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 380px"
             className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105"
             loading="lazy"
           />
@@ -325,7 +329,7 @@ const BTCShowcase = () => {
             
             {/* Category and Badges */}
             <div className="absolute top-4 left-4 flex gap-2 flex-wrap">
-              <span className={`px-3 py-1 ${getCategoryColor(selectedImage.category)} text-white text-sm font-semibold rounded-full`}>
+              <span className={`px-3 py-1 ${getCategoryColor(selectedImage.category)} text-sm font-semibold rounded-full`}>
                 {selectedImage.category}
               </span>
               {selectedImage.featured && (
@@ -375,8 +379,17 @@ const BTCShowcase = () => {
       />
       {/* Hero Header */}
       <section className="relative bg-gradient-to-br from-gray-900 to-blue-900 pt-18">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=1080&fit=crop')] bg-cover bg-center opacity-40" />
-        
+        <div className="absolute inset-0 opacity-40">
+          <Image
+            fill
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=1080&fit=crop"
+            alt="Background"
+            className="object-cover object-center"
+            loading="lazy"
+            sizes="100vw"
+            priority={false} // Ensure it's NOT priority
+          />
+        </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white">
@@ -462,9 +475,12 @@ const BTCShowcase = () => {
       {/* Back to Top */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="fixed bottom-6 right-6 w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg flex items-center justify-center z-40 transition-all duration-300"
+        className="fixed bottom-6 right-6 w-12 h-12 bg-blue-600 hover:bg-blue-700 focus:bg-blue-700 text-white rounded-full shadow-lg flex items-center justify-center z-40 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        aria-label="Scroll to top of page"
+        title="Scroll to top"
+        type="button"
       >
-        <ChevronDown className="w-5 h-5 rotate-180" />
+        <ChevronDown className="w-5 h-5 rotate-180" aria-hidden="true" />
       </button>
     </div>
   );

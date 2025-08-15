@@ -171,7 +171,7 @@ export const HeroSection = ({ heroParallax, heroOpacity }) => {
                 style={{ y: heroParallax }}
               >
                 <Image
-                  src="/lampiran Foto/Edit/Polos/IMG20220623100026.jpg"
+                  src="/lampiran Foto/Edit/Polos/IMG20220623100026.webp"
                   alt="Professional PVC Construction Materials"
                   width={600}
                   height={400}

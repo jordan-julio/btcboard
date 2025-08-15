@@ -227,7 +227,7 @@ export default function AboutUsPage() {
                 <div className="relative bg-white rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-700">
                   <div className="aspect-[4/5]">
                     <img 
-                      src="/lampiran Foto/1.jpg" 
+                      src="/lampiran Foto/1.webp" 
                       alt="BTC Board Production Facility" 
                       className="w-full h-full object-cover"
                     />
@@ -294,7 +294,7 @@ export default function AboutUsPage() {
               <div className="relative">
                 <div className="aspect-[4/5] bg-gradient-to-br from-blue-100 to-gray-100 rounded-2xl overflow-hidden">
                   <img
-                    src="/lampiran Foto/2.jpg"
+                    src="/lampiran Foto/2.webp"
                     alt="Fasilitas Produksi BTC Board"
                     className="w-full h-full object-cover"
                   />

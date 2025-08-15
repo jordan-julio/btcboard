@@ -80,10 +80,10 @@ export const Footer = () => {
               </div>*/}
 
               <div>
-                <h4 className="text-xl font-semibold mb-6 text-white flex items-center">
+                <h2 className="text-xl font-semibold mb-6 text-white flex items-center">
                   <span className="w-2 h-2 bg-green-400 rounded-full mr-3" />
                   {t('footer.columns.resources')}
-                </h4>
+                </h2>
                 <ul className="space-y-3">
                   {resourceLinks.map((label) => (
                     <li key={label}>
