@@ -16,7 +16,9 @@ export const metadata = {
   description: "BTC Board offers premium PVC board solutions for construction, signage, and industrial applications. High-quality, durable, and versatile PVC boards for all your project needs.",
   keywords: [
     "BTC Board",
+    "btc board",
     "PVC Board",
+    "pvc board",
     "PVC sheets",
     "construction materials",
     "signage boards",
