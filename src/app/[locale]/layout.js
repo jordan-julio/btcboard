@@ -31,7 +31,6 @@ export const metadata = {
   publisher: "BTC Board",
   metadataBase: new URL('https://btc-board.com'),
   alternates: {
-    canonical: '/',
     languages: {
       'en-US': '/en',
       'id-ID': '/id',
