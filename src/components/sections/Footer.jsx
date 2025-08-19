@@ -66,7 +66,7 @@ export const Footer = () => {
             </motion.div>
 
             {/* Solutions & Resources */}
-            <motion.div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-8" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} viewport={{ once: true }}>
+            <motion.div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-8" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} viewport={{ once: true }}>
               {/*<div>
                 <h4 className="text-xl font-semibold mb-6 text-white flex items-center">
                   <span className="w-2 h-2 bg-blue-400 rounded-full mr-3" />
@@ -103,7 +103,7 @@ export const Footer = () => {
             </motion.div>
 
             {/* Contact */}
-            <motion.div className="lg:col-span-3" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} viewport={{ once: true }}>
+            <motion.div className="lg:col-span-4" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} viewport={{ once: true }}>
               <h4 className="text-xl font-semibold mb-6 text-white flex items-center">
                 <span className="w-2 h-2 bg-yellow-400 rounded-full mr-3" />
                 {t('footer.columns.contact')}

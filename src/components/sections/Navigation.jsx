@@ -92,7 +92,7 @@ export const Navigation = ({ scrolled, isMenuOpen, setIsMenuOpen }) => {
       ${quoteForm.name}
     `;
         
-    window.location.href = `mailto:btcboardsby@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:teknindocemerlang@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   const navigationItems = [
