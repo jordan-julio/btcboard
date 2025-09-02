@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
 import {
-  Check, ArrowRight, Calendar, Phone,
+  Check, Calendar, Phone,
   Grid3x3, Layers, Paintbrush, Square, Award, Eye, ChevronRight
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -424,6 +424,7 @@ export const ProductsSection = () => {
 
                   {/* Action Buttons */}
                   <div className="flex flex-col sm:flex-row gap-3 lg:gap-4">
+                    {/*
                     <motion.button
                       className="group flex-1 text-white py-3 lg:py-4 px-6 lg:px-8 rounded-xl lg:rounded-2xl font-semibold shadow-md flex items-center justify-center gap-2"
                       style={{ backgroundColor: currentSolution.primaryColor }}
@@ -434,11 +435,11 @@ export const ProductsSection = () => {
                       <span className="text-sm lg:text-base">{t('viewDetails')}</span>
                       <ChevronRight className="w-4 h-4 lg:w-5 lg:h-5 group-hover:translate-x-1 transition-transform" />
                     </motion.button>
-
+                    */}
                     <CalendlyWidget 
                       url="https://calendly.com/z5376268/30min"
                       text={t('getQuote')}
-                      className="flex-1 bg-white/80 backdrop-blur-sm hover:bg-white/95 text-slate-800 py-3 lg:py-4 px-6 lg:px-8 rounded-xl lg:rounded-2xl font-semibold border border-slate-200 hover:border-slate-300 transition-all duration-300 text-sm lg:text-base flex items-center justify-center gap-2"
+                      className="flex-1 bg-white/90 backdrop-blur-sm hover:bg-white/95 text-slate-800 py-3 lg:py-4 px-6 lg:px-8 rounded-xl lg:rounded-2xl font-semibold border border-slate-200 hover:border-slate-300 transition-all duration-300 text-sm lg:text-base flex items-center justify-center gap-2"
                     />
                   </div>
                 </div>

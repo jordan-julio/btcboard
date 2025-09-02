@@ -16,9 +16,11 @@ import { useScroll, useTransform } from 'framer-motion';
 import Loader from '@/components/utility/Loader';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { GetQuoteModal } from '@/components/modal/getQuoteModal';
 
 const BTCShowcase = () => {
   const t = useTranslations();
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -462,12 +464,14 @@ const BTCShowcase = () => {
             {t('aboutPage.cta.description')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors flex items-center justify-center gap-2">
+            <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors flex items-center justify-center gap-2" onClick={() => {
+              setIsQuoteModalOpen(true)
+            }}>
               <span>{t('navigation.getQuote')}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
-            <button className="px-8 py-3 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white font-semibold rounded-xl transition-colors">
-              {t('products.cta.catalog')}
+            <button className="px-8 py-3 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white font-semibold rounded-xl transition-colors disabled cursor-not-allowed">
+              {t('products.cta.catalog')} (Belum Tersedia)
             </button>
           </div>
         </div>
@@ -484,6 +488,7 @@ const BTCShowcase = () => {
       >
         <ChevronDown className="w-5 h-5 rotate-180" aria-hidden="true" />
       </button>
+      <GetQuoteModal setIsQuoteModalOpen={setIsQuoteModalOpen} isQuoteModalOpen={isQuoteModalOpen} />
     </div>
   );
 };

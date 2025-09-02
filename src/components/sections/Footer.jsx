@@ -7,8 +7,14 @@ import { useTranslations } from 'next-intl';
 
 export const Footer = () => {
   const t = useTranslations();
+  const tNav = useTranslations('navigation');
   const solutionLinks = t.raw('footer.solutionLinks');
-  const resourceLinks = t.raw('footer.resourceLinks');
+  const navigationItems = [
+    { key: 'home', href: '/'},
+    { key: 'aboutus', href: '/about' },
+    { key: 'products', href: '/products' },
+    /**{ key: 'innovation', href: '/innovation' }**/
+  ];
   const year = new Date().getFullYear();
 
   return (
@@ -94,11 +100,11 @@ export const Footer = () => {
                   {t('footer.columns.resources')}
                 </h2>
                 <ul className="space-y-3">
-                  {resourceLinks.map((label) => (
-                    <li key={label}>
-                      <motion.a href="#" className="group flex items-center text-slate-400 hover:text-white transition" whileHover={{ x: 4 }}>
+                  {navigationItems.map((item, index) => (
+                    <li key={item.key}>
+                      <motion.a href={item.href} className="group flex items-center text-slate-400 hover:text-white transition" whileHover={{ x: 4 }}>
                         <ArrowRight className="w-4 h-4 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
-                        <span className="text-sm underline-offset-4 group-hover:underline">{label}</span>
+                        <span className="text-sm underline-offset-4 group-hover:underline">{tNav(`${item.key}`)}</span>
                       </motion.a>
                     </li>
                   ))}

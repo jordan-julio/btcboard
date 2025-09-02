@@ -24,6 +24,8 @@ import { Navigation } from '@/components/sections/Navigation';
 import { Footer } from '@/components/sections/Footer';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import { CalendlyWidget } from '@/components/sections/ProductsSection';
+import { motion } from 'framer-motion';
 
 export default function AboutUsPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -448,13 +450,21 @@ export default function AboutUsPage() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="group px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
-              <span>{t('aboutPage.cta.consultation')}</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button className="px-8 py-3 bg-transparent border border-gray-600 hover:border-gray-500 text-white font-semibold rounded-lg transition-all duration-300">
+            <CalendlyWidget
+              url="https://calendly.com/z5376268/30min"
+              text={t('aboutPage.cta.consultation')}
+              className="group px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-2"
+            />
+            <motion.button className="px-8 py-3 bg-transparent border border-gray-600 hover:border-gray-500 text-white font-semibold rounded-lg transition-all duration-300"
+              onClick={() => {
+                router.push('/products');
+              }}
+              type="button"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               {t('aboutPage.cta.products')}
-            </button>
+            </motion.button>
           </div>
         </div>
       </section>
