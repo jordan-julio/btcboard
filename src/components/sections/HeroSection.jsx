@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Play, CheckCircle, Star, Shield, Phone, Mail, Instagram } from 'lucide-react';
+import { ArrowRight, Play, CheckCircle, Star, Shield, Phone, Mail, Instagram, PlayCircle } from 'lucide-react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
@@ -214,16 +214,14 @@ export const HeroSection = ({ heroParallax, heroOpacity }) => {
 
           {/* Right Visual Content - Mobile Optimized */}
           <motion.div
-            className="relative order-1 lg:order-2"
+            className="relative order-1 lg:order-2 group"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
             {/* Main Image Container */}
             <div className="relative">
-              {/* Replace the Image with a hoverable video wrapper */}
               <HoverVideo />
-              {/* Mobile-Optimized Floating Stats Cards */}
               <motion.div
                 className="hidden absolute -left-2 sm:-left-6 top-15 sm:top-20 bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl p-3 sm:p-6 border border-slate-100/60"
                 initial={{ opacity: 0, x: -20 }}
@@ -234,7 +232,6 @@ export const HeroSection = ({ heroParallax, heroOpacity }) => {
                 <div className="text-xl sm:text-3xl font-bold text-blue-600">{new Date().getFullYear() - 2018}+</div>
                 <div className="text-xs sm:text-sm text-slate-600 font-semibold">{t('stats.yearsInBusiness')}</div>
               </motion.div>
-              
               <motion.div
                 className="hidden absolute -right-2 sm:-right-6 bottom-4 sm:bottom-20 bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl p-3 sm:p-6 border border-slate-100/60"
                 initial={{ opacity: 0, x: 20 }}
@@ -245,18 +242,21 @@ export const HeroSection = ({ heroParallax, heroOpacity }) => {
                 <div className="text-xl sm:text-3xl font-bold text-emerald-600">1M+</div>
                 <div className="text-xs sm:text-sm text-slate-600 font-semibold">{t('stats.satisfiedCustomers')}</div>
               </motion.div>
-              
-              {/* Enhanced Quality Badge */}
               <motion.div
-                className="absolute top-3 sm:top-6 left-3 sm:left-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold shadow-lg"
-                initial={{ opacity: 0, scale: 0.8 }}
+                className="
+                  hidden sm:block
+                  absolute top-3 sm:top-6 left-3 sm:left-6
+                  bg-gradient-to-r from-blue-600 to-blue-600
+                  text-white px-3 sm:px-4 py-1.5 sm:py-2
+                  rounded-full text-xs sm:text-sm font-bold shadow-lg
+                  transition-all duration-300 group-hover:hidden
+                "
+                initial={{ opacity: 1, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.4, duration: 0.6 }}
               >
-                {t('badges.premiumQuality')}
+                <PlayCircle className="w-4 h-4 sm:w-5 sm:h-5" />
               </motion.div>
-
-              {/* Additional Trust Element */}
               <motion.div
                 className="hidden absolute bottom-3 sm:bottom-6 left-3 sm:left-6 bg-emerald-500 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold shadow-lg"
                 initial={{ opacity: 0, scale: 0.8 }}
