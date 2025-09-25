@@ -1,10 +1,65 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play, CheckCircle, Star, Shield, Phone, Mail, Instagram } from 'lucide-react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
+
+export default function HoverVideo({ heroParallax }) {
+  const vidRef = useRef(null);
+
+  useEffect(() => {
+    const v = vidRef.current;
+    if (!v) return;
+    const tryPlay = () => v.play().catch(() => {});
+    v.addEventListener('canplay', tryPlay, { once: true });
+    tryPlay();
+    return () => v.removeEventListener('canplay', tryPlay);
+  }, []);
+
+  return (
+    <div className="relative">
+      <motion.div
+        className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl sm:shadow-2xl group"
+        style={{ y: heroParallax }}
+        onMouseEnter={() => vidRef.current?.play().catch(() => {})}
+      >
+        <Image
+          src="/lampiran Foto/Edit/Polos/IMG20220623100026.webp"
+          alt="Professional PVC Construction Materials"
+          width={600}
+          height={400}
+          className="hidden sm:block object-cover w-full h-[300px] sm:h-[400px] lg:h-[500px]"
+          priority
+        />
+        <video
+          ref={vidRef}
+          src="/demo.mp4"
+          muted
+          loop
+          playsInline
+          autoPlay
+          preload="auto"
+          className="
+            absolute inset-0 object-cover w-full h-full
+            opacity-0 group-hover:opacity-100 transition-opacity duration-200
+            hidden sm:block
+          "
+        />
+        <video
+          src="/demo.mp4"
+          muted
+          loop
+          autoPlay
+          playsInline
+          preload="auto"
+          className="sm:hidden object-cover w-full h-[50dvh]"
+        />
+      </motion.div>
+    </div>
+  );
+}
 
 export const HeroSection = ({ heroParallax, heroOpacity }) => {
   const router = useRouter();
@@ -166,21 +221,8 @@ export const HeroSection = ({ heroParallax, heroOpacity }) => {
           >
             {/* Main Image Container */}
             <div className="relative">
-              <motion.div 
-                className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl sm:shadow-2xl"
-                style={{ y: heroParallax }}
-              >
-                <Image
-                  src="/lampiran Foto/Edit/Polos/IMG20220623100026.webp"
-                  alt="Professional PVC Construction Materials"
-                  width={600}
-                  height={400}
-                  className="object-cover w-full h-[300px] sm:h-[400px] lg:h-[500px]"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent"></div>
-              </motion.div>
-              
+              {/* Replace the Image with a hoverable video wrapper */}
+              <HoverVideo />
               {/* Mobile-Optimized Floating Stats Cards */}
               <motion.div
                 className="hidden absolute -left-2 sm:-left-6 top-15 sm:top-20 bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl p-3 sm:p-6 border border-slate-100/60"
